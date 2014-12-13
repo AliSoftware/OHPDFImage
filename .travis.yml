@@ -1,0 +1,7 @@
+language: objective-c
+
+before_install:
+  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+
+script:
+  - set -o pipefail && xcodebuild -workspace Example/OHPDFImageDemo.xcworkspace -scheme "OHPDFImageDemo" -sdk iphonesimulator -configuration Release ONLY_ACTIVE_ARCH=NO test | xcpretty -c

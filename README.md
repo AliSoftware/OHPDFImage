@@ -1,5 +1,11 @@
 # OHPDFImage
 
+
+[![Version](http://cocoapod-badges.herokuapp.com/v/OHPDFImage/badge.png)](http://cocoadocs.org/docsets/OHPDFImage)
+[![Platform](http://cocoapod-badges.herokuapp.com/p/OHPDFImage/badge.png)](http://cocoadocs.org/docsets/OHPDFImage)
+[![Build Status](https://travis-ci.org/AliSoftware/OHPDFImage.png?branch=master)](https://travis-ci.org/AliSoftware/OHPDFImage)
+
+
 This library intends to easily load PDF documents to use them as images.
 
 ## Installation
