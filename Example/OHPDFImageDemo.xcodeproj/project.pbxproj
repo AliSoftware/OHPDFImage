@@ -15,6 +15,8 @@
 		09027B4A1A3CA71B007625B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09027B481A3CA71B007625B7 /* LaunchScreen.xib */; };
 		09027B561A3CA71B007625B7 /* OHPDFImageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09027B551A3CA71B007625B7 /* OHPDFImageTests.m */; };
 		097F6F5B1A3CB9FE00F1FE65 /* check.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 097F6F5A1A3CB9FE00F1FE65 /* check.pdf */; };
+		097F6F5E1A3CDC8F00F1FE65 /* circle.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 097F6F5D1A3CDC8F00F1FE65 /* circle.pdf */; };
+		097F6F601A3CE07E00F1FE65 /* dingbats.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 097F6F5F1A3CE07E00F1FE65 /* dingbats.pdf */; };
 		C71835FB7F0DBB7CFA3232F1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A26BDC6D04530DAB526FEB /* libPods.a */; };
 		DBA750C40A9CC0BBD7140D6E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A26BDC6D04530DAB526FEB /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,8 @@
 		09027B541A3CA71B007625B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09027B551A3CA71B007625B7 /* OHPDFImageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OHPDFImageTests.m; sourceTree = "<group>"; };
 		097F6F5A1A3CB9FE00F1FE65 /* check.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = check.pdf; sourceTree = "<group>"; };
+		097F6F5D1A3CDC8F00F1FE65 /* circle.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = circle.pdf; sourceTree = "<group>"; };
+		097F6F5F1A3CE07E00F1FE65 /* dingbats.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = dingbats.pdf; sourceTree = "<group>"; };
 		0D8CEE072ADB3E3A9BBD09AA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		80A26BDC6D04530DAB526FEB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1E3125F2235BE421751BA1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,7 +136,9 @@
 		097F6F5C1A3CBA1B00F1FE65 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				097F6F5D1A3CDC8F00F1FE65 /* circle.pdf */,
 				097F6F5A1A3CB9FE00F1FE65 /* check.pdf */,
+				097F6F5F1A3CE07E00F1FE65 /* dingbats.pdf */,
 				09027B461A3CA71B007625B7 /* Images.xcassets */,
 				09027B481A3CA71B007625B7 /* LaunchScreen.xib */,
 			);
@@ -241,7 +247,9 @@
 			files = (
 				09027B451A3CA71B007625B7 /* Main.storyboard in Resources */,
 				09027B4A1A3CA71B007625B7 /* LaunchScreen.xib in Resources */,
+				097F6F5E1A3CDC8F00F1FE65 /* circle.pdf in Resources */,
 				09027B471A3CA71B007625B7 /* Images.xcassets in Resources */,
+				097F6F601A3CE07E00F1FE65 /* dingbats.pdf in Resources */,
 				097F6F5B1A3CB9FE00F1FE65 /* check.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

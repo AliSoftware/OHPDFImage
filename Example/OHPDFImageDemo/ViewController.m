@@ -12,6 +12,7 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @end
 
 @implementation ViewController
@@ -26,6 +27,10 @@
 {
     [self reloadImage];
 }
+- (IBAction)segmentChanged:(UISegmentedControl *)sender
+{
+    [self reloadImage];
+}
 
 - (void)reloadImage
 {
@@ -35,7 +40,8 @@
         .height = CGRectGetHeight(self.imageView.superview.bounds)*scale
     };
 
-    UIImage* checkImage = [UIImage imageWithPDFNamed:@"check" size:imageSize aspectFit:YES];
+    NSString* imageName = (NSString* []){@"circle", @"check", @"dingbats"}[self.segmentedControl.selectedSegmentIndex];
+    UIImage* checkImage = [UIImage imageWithPDFNamed:imageName size:imageSize aspectFit:YES];
     self.imageView.image = checkImage;
 
 }
