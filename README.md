@@ -6,11 +6,11 @@
 [![Build Status](https://travis-ci.org/AliSoftware/OHPDFImage.png?branch=master)](https://travis-ci.org/AliSoftware/OHPDFImage)
 
 
-This library intends to easily load PDF documents to use them as images.
+This library intends to easily load PDF documents to use them as vector images.
 
 ## Installation
 
-The recommended way to install this library is using [CocoaPods](http://cocoapods.org). Simply add it to your `Podfile`:
+The recommended way to install this library is using [CocoaPods](http://guides.cocoapods.org). Simply add it to your `Podfile`:
 
 ```
 pod 'OHPDFImage'
