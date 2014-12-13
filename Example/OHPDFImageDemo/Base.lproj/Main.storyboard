@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="10" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="A8Y-xD-ckf">
+                                <rect key="frame" x="18" y="40" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="3zB-gj-LeX"/>
+                                </connections>
+                            </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjG-s1-6BL">
+                                <rect key="frame" x="20" y="90" width="560" height="490"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-xO-df2">
+                                        <rect key="frame" x="230" y="195" width="100" height="100"/>
+                                        <color key="backgroundColor" red="0.8177027702331543" green="0.92104744911193848" blue="0.99958515167236328" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="250" constant="100" placeholder="YES" id="Ini-jR-598"/>
+                                            <constraint firstAttribute="height" priority="250" constant="100" placeholder="YES" id="euS-kh-pob"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97188204526901245" green="0.98798835277557373" blue="0.99992537498474121" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="bmf-xO-df2" firstAttribute="top" secondItem="PjG-s1-6BL" secondAttribute="top" id="7TN-Lg-5q3"/>
+                                    <constraint firstAttribute="trailing" secondItem="bmf-xO-df2" secondAttribute="trailing" id="aur-gO-IGp"/>
+                                    <constraint firstAttribute="centerY" secondItem="bmf-xO-df2" secondAttribute="centerY" id="jOZ-ZN-HpO"/>
+                                    <constraint firstItem="bmf-xO-df2" firstAttribute="leading" secondItem="PjG-s1-6BL" secondAttribute="leading" id="nD9-30-HsQ"/>
+                                    <constraint firstAttribute="centerX" secondItem="bmf-xO-df2" secondAttribute="centerX" id="z5F-zS-Xnl"/>
+                                    <constraint firstAttribute="bottom" secondItem="bmf-xO-df2" secondAttribute="bottom" id="zcQ-Il-evZ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7TN-Lg-5q3"/>
+                                        <exclude reference="aur-gO-IGp"/>
+                                        <exclude reference="nD9-30-HsQ"/>
+                                        <exclude reference="zcQ-Il-evZ"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PjG-s1-6BL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="5rA-BC-9qF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PjG-s1-6BL" secondAttribute="bottom" constant="20" id="FV5-xe-wny"/>
+                            <constraint firstItem="A8Y-xD-ckf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Kcw-c2-eTT"/>
+                            <constraint firstItem="A8Y-xD-ckf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="WVA-8z-SnC"/>
+                            <constraint firstAttribute="trailing" secondItem="A8Y-xD-ckf" secondAttribute="trailing" constant="20" id="kmH-pm-OYy"/>
+                            <constraint firstItem="PjG-s1-6BL" firstAttribute="top" secondItem="A8Y-xD-ckf" secondAttribute="bottom" constant="20" id="vEI-nb-jWA"/>
+                            <constraint firstAttribute="trailing" secondItem="PjG-s1-6BL" secondAttribute="trailing" constant="20" id="xFS-Gs-HaD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="bmf-xO-df2" id="W1B-gx-iK0"/>
+                        <outlet property="slider" destination="A8Y-xD-ckf" id="F6j-Mr-SbJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
