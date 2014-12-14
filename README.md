@@ -18,14 +18,14 @@ pod 'OHPDFImage'
 
 ## Using a PDF as an image
 
-First, add the PDF to your project — as a resource included in your app target.
+> The following examples suppose that you have added a PDF file `"vector_image.pdf"` to your project — as a resource included in your app target.
 
 ### Use the `UIImage` category
 
 If you simply intend to use the PDF as an image as-is, you can use:
 
 ```objc
-self.imageView.image = [UIImage imageWithPDFNamed:@"NameOfPDFImage"
+self.imageView.image = [UIImage imageWithPDFNamed:@"vector_image"
                                         fitInSize:self.imageView.bounds.size];
 ```
 
@@ -59,11 +59,11 @@ In such case, the generated image will only use the alpha channel of the PDF vec
 #### Complete Example
 
 ```objc
-OHVectorImage* vImage = [OHVectorImage imageWithPDFNamed:imageName];
-CGSize fitSize = [vImage sizeThatFits:imageSize]; // Ensure to keep aspect ratio
+OHVectorImage* vImage = [OHVectorImage imageWithPDFNamed:@"vector_image"];
+CGSize fitSize = [vImage sizeThatFits:imageViewSize]; // Ensure to keep aspect ratio
 vImage.backgroundColor = [UIColor colorWithRed:0.9 green:1.0 blue:0.9 alpha:1.0];
 vImage.tintColor = [UIColor redColor];
-image = [vImage imageWithSize:fitSize];
+UIImage* image = [vImage imageWithSize:fitSize];
 ```
 
 
@@ -73,13 +73,25 @@ The main goal of this library is to use PDF as images using the `UIImage` catego
 
 However, you can also use the `OHPDFDocument` and `OHPDFPage` classes to load a PDF document and get its pages, and render those pages individually in a graphic context (`CGContextRef`) you provide.
 
-You can also use this to fetch an arbitrary page of a given PDF to generate a vector image (instead of using the first page, which is the default):
+You can also use this to fetch an arbitrary page of a given PDF to generate a vector image (instead of using the first page, which is the default).  
+For example, the following code read every page of a PDF as a vector image and build an animated `UIImage` from it:
 
 ```objc
-NSURL* pdfURL = …
+NSURL* pdfURL = [[NSBundle mainBundle] URLForResource:@"vector_images" withExtension:@"pdf"];
 OHPDFDocument* doc = [OHPDFDocument documentWithURL:pdfURL];
-OHPDFPage* page = [doc pageAtIndex:3]; // Note: page indexes starts at 1
-OHVectorImage* vImage = [OHVectorImage imageWithPDFPage:page];
+NSMutableArray* frames = [NSMutableArray arrayWithCapacity:doc.pagesCount];
+CGSize frameSize = CGSizeMake(100,100);
+// Note: page indexes start at 1
+for(size_t pageNum = 1; pageNum < doc.pagesCount; ++pageNum)
+{
+  OHPDFPage* page = [doc pageAtIndex:pageNum];
+  OHVectorImage* vImage = [OHVectorImage imageWithPDFPage:page];
+  [frames addObject:[vImages imageWithSize:frameSize]];
+}
+
+NSTimeInterval duration = doc.pagesCount * 2.0; // 2.0s per frame 
+UIImage* animatedImage = [UIImage animatedImageWithImages:frames
+                                                 duration:duration];
 ```
 
 ## License
