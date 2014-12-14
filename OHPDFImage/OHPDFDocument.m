@@ -30,6 +30,7 @@
 @implementation OHPDFDocument
 
 #pragma mark - Constructors
+
 + (instancetype)documentWithURL:(NSURL*)url
 {
     CGPDFDocumentRef docRef = CGPDFDocumentCreateWithURL((__bridge CFURLRef)url);
@@ -61,6 +62,7 @@
 }
 
 #pragma mark - Getting a page
+
 - (OHPDFPage*)pageAtIndex:(size_t)pageNumber
 {
     if (pageNumber > 0 && pageNumber <= _pagesCount)

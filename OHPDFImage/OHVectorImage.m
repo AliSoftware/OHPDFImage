@@ -87,7 +87,7 @@
     return vImage;
 }
 
-#pragma mark - Rendering
+#pragma mark - Rendering at a given size
 
 - (CGSize)sizeThatFits:(CGSize)size
 {

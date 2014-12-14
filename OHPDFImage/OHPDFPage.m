@@ -70,7 +70,7 @@
     return CGPDFPageGetBoxRect(_pageRef, kCGPDFArtBox);
 }
 
-#pragma mark - Drawing and transforming to UIImage
+#pragma mark - Drawing in a graphic context
 
 - (void)drawInContext:(CGContextRef)context
 {

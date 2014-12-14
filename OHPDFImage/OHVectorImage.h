@@ -113,7 +113,7 @@
  */
 + (instancetype)imageWithPDFPage:(OHPDFPage*)pdfPage;
 
-#pragma mark - Rendering
+#pragma mark - Rendering at a given size
 
 /**
  *  Returns the CGSize that would make the OHVectorImage fit in the

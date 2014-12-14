@@ -39,6 +39,7 @@
 @property(nonatomic, assign, readonly) CGPDFPageRef pageRef;
 
 #pragma mark - PDF Page Box Rects
+
 /**
  *  The PDF page media box. See kCGPDFMediaBox documentation for details.
  */
@@ -61,6 +62,7 @@
 @property(nonatomic, readonly) CGRect artBox;
 
 #pragma mark - Constructor
+
 /**
  *  Create a new OHPDFPage from a CGPDFPageRef
  *
@@ -70,7 +72,8 @@
  */
 + (instancetype)pageWithRef:(CGPDFPageRef)pageRef;
 
-#pragma mark - Drawing and transforming to UIImage
+#pragma mark - Drawing in a graphic context
+
 /**
  *  Draws the page in a Graphic Context
  *
