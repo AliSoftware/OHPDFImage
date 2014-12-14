@@ -81,10 +81,9 @@ NSURL* pdfURL = [[NSBundle mainBundle] URLForResource:@"vector_images" withExten
 OHPDFDocument* doc = [OHPDFDocument documentWithURL:pdfURL];
 NSMutableArray* frames = [NSMutableArray arrayWithCapacity:doc.pagesCount];
 CGSize frameSize = CGSizeMake(100,100);
-// Note: page indexes start at 1
-for(size_t pageNum = 1; pageNum < doc.pagesCount; ++pageNum)
+for(size_t pageNum = 0; pageNum < doc.pagesCount; ++pageNum)
 {
-  OHPDFPage* page = [doc pageAtIndex:pageNum];
+  OHPDFPage* page = [doc pageAtIndex:pageNum+1]; // Note: page indexes start at 1
   OHVectorImage* vImage = [OHVectorImage imageWithPDFPage:page];
   [frames addObject:[vImages imageWithSize:frameSize]];
 }
