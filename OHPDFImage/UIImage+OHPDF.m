@@ -27,7 +27,7 @@
 
 /***********************************************************************************/
 
-@implementation UIImage (OHPDF)
+@implementation UIImage (OHPDFImage)
 
 + (instancetype)imageWithPDFNamed:(NSString*)pdfName
                         fitInSize:(CGSize)size;

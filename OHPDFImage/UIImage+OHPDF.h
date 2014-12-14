@@ -26,7 +26,12 @@
 
 /***********************************************************************************/
 
-@interface UIImage (OHPDF)
+/**
+ *  Thic category adds support for PDF files.
+ *  It allows you to use PDF files as vector images and render them at arbitrary
+ *  sizes, ensuring the scaling is done smoothing using vector graphics from the PDF.
+ */
+@interface UIImage (OHPDFImage)
 /**
  *  Returns an UIImage build from loading the first page of the PDF file
  *  with the given name in the main bundle and rendering it as the given size

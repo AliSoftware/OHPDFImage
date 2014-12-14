@@ -27,6 +27,14 @@
 
 /***********************************************************************************/
 
+/**
+ *  This class represents a vector image, typically loaded from a PDF file.
+ *
+ *  It allows you to query the expected rendering size (mediaBox of the PDF)
+ *  and render it as an UIImage using various parameters like a given
+ *  backgroundColor, tintColor and custom size, and also compute the size
+ *  that fits a given input size when you need to keep original aspect ratio.
+ */
 @interface OHVectorImage : NSObject
 
 #pragma mark - Properties

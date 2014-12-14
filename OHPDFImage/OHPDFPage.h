@@ -28,6 +28,9 @@
 
 /***********************************************************************************/
 
+/**
+ *  A given page of a PDF document.
+ */
 @interface OHPDFPage : NSObject
 
 /**
