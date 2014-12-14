@@ -16,12 +16,16 @@ Pod::Spec.new do |s|
   #
 
   s.name         = 'OHPDFImage'
-  s.version      = '1.0.0'
-  s.summary      = "OHPDFImage allows you to manipulate PDFs as UIImages"
+  s.version      = '2.0.0'
+  s.summary      = "OHPDFImage allows you to use PDFs as vector UIImages"
 
   s.description  = <<-DESC
-                   OHPDFImage will open PDF and make it easy to access each page
-                   of the PDF as an UIImage
+                   OHPDFImage will open PDF files and make it easy to access
+                   each page of the PDF as a vector image, then render it as
+                   an UIImage of any size.
+
+                   This will allow you to use PDF files as vector images in
+                   your applications, and ensure smooth resizing at any size.
                    DESC
 
   s.license      = { :type => 'MIT', :file => 'LICENSE' }

@@ -1,5 +1,5 @@
 PODS:
-  - OHPDFImage (1.0.0)
+  - OHPDFImage (2.0.0)
 
 DEPENDENCIES:
   - OHPDFImage (from `..`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  OHPDFImage: 729bd8f13dae682e5b7cf531fd8229e3e52ca9e4
+  OHPDFImage: 98322cfb83e1af6a2c955818de467d48ff74a72b
 
 COCOAPODS: 0.35.0
