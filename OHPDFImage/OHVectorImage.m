@@ -72,14 +72,7 @@
         }
     }
     
-    OHVectorImage* vImage = nil;
-    if (page)
-    {
-        vImage = [self new];
-        vImage.pdfPage = page;
-        vImage->_nativeSize = page.mediaBox.size;
-    }
-    return vImage;
+    return [self imageWithPDFPage:page];
 }
 
 + (instancetype)imageWithPDFPage:(OHPDFPage*)pdfPage
