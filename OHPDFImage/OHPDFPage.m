@@ -74,52 +74,22 @@
 
 - (void)drawInContext:(CGContextRef)context
 {
+    [self drawInContext:context rect:self.mediaBox flipped:NO];
+}
+
+- (void)drawInContext:(CGContextRef)context rect:(CGRect)rect flipped:(BOOL)flipped
+{
+    CGFloat sx = rect.size.width/self.mediaBox.size.width;
+    CGFloat sy = rect.size.height/self.mediaBox.size.height;
+
+    CGContextConcatCTM(context, CGAffineTransformMakeTranslation(rect.origin.x, rect.origin.y));
+    CGContextConcatCTM(context, CGAffineTransformMakeScale(sx, sy));
+    if (flipped)
+    {
+        CGContextConcatCTM(context, CGAffineTransformMakeScale(1.0, -1.0));
+        CGContextConcatCTM(context, CGAffineTransformMakeTranslation(0, -self.mediaBox.size.height));
+    }
     CGContextDrawPDFPage(context, _pageRef);
 }
 
-- (UIImage*)imageWithSize:(CGSize)size
-                aspectFit:(BOOL)aspectFit
-{
-    return [self imageWithSize:size aspectFit:aspectFit opaque:NO scale:0.0];
-}
-
-- (UIImage*)imageWithSize:(CGSize)size
-                aspectFit:(BOOL)aspectFit
-                   opaque:(BOOL)opaque
-                    scale:(CGFloat)scale
-{
-    CGFloat sx = 1.0;
-    CGFloat sy = 1.0;
-    CGSize mediaBoxSize = self.mediaBox.size;
-    
-    if (!CGSizeEqualToSize(size, CGSizeZero))
-    {
-        sx = size.width / mediaBoxSize.width;
-        sy = size.height / mediaBoxSize.height;
-        if (aspectFit)
-        {
-            sx = sy = MIN(sx,sy);
-        }
-    }
-    CGRect rect = CGRectMake(0.f, 0.f, mediaBoxSize.width*sx, mediaBoxSize.height*sy);
-    UIImage* image = nil;
-    
-    UIGraphicsBeginImageContextWithOptions(rect.size, opaque, scale);
-    {
-        CGContextRef ctx = UIGraphicsGetCurrentContext();
-        if (opaque)
-        {
-            CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
-            CGContextFillRect(ctx, rect);
-        }
-        
-        CGContextConcatCTM(ctx, CGAffineTransformMakeScale(sx, -sy));
-        CGContextConcatCTM(ctx, CGAffineTransformMakeTranslation(0, -self.mediaBox.size.height));
-        [self drawInContext:ctx];
-        image = UIGraphicsGetImageFromCurrentImageContext();
-    }
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
 @end

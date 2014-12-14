@@ -7,12 +7,13 @@
 //
 
 #import "ViewController.h"
-#import <OHPDFImage/UIImage+OHPDF.h>
+#import <OHPDFImage/OHPDFImage.h>
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UISwitch *colorSwitch;
 @end
 
 @implementation ViewController
@@ -31,6 +32,10 @@
 {
     [self reloadImage];
 }
+- (IBAction)switchChanged:(UISwitch *)sender
+{
+    [self reloadImage];
+}
 
 - (void)reloadImage
 {
@@ -39,11 +44,26 @@
         .width  = CGRectGetWidth(self.imageView.superview.bounds)*scale,
         .height = CGRectGetHeight(self.imageView.superview.bounds)*scale
     };
-
-    NSString* imageName = (NSString* []){@"circle", @"check", @"dingbats"}[self.segmentedControl.selectedSegmentIndex];
-    UIImage* checkImage = [UIImage imageWithPDFNamed:imageName size:imageSize aspectFit:YES];
-    self.imageView.image = checkImage;
-
+    
+    NSString* imageName = (NSString* []){
+        @"circle", @"check", @"dingbats", @"dotmask"
+    }[self.segmentedControl.selectedSegmentIndex];
+    
+    UIImage* image = nil;
+    if (self.colorSwitch.on)
+    {
+        OHVectorImage* vImage = [OHVectorImage imageWithPDFNamed:imageName];
+        CGSize fitSize = [vImage sizeThatFits:imageSize];
+        vImage.backgroundColor = [UIColor colorWithRed:0.9 green:1.0 blue:0.9 alpha:1.0];
+        vImage.tintColor = [UIColor redColor];
+        image = [vImage imageWithSize:fitSize];
+    }
+    else
+    {
+        image = [UIImage imageWithPDFNamed:imageName fitInSize:imageSize];
+    }
+    
+    self.imageView.image = image;
 }
 
 

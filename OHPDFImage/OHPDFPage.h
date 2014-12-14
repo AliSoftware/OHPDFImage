@@ -76,36 +76,14 @@
 - (void)drawInContext:(CGContextRef)context;
 
 /**
- *  Create an image from the PDF page.
- *  The image will be non-opaque and using the image scale of the current device.
+ *  Draws the page in a Graphic Context
  *
- *  @param size The size of the image to create from the PDF.
- *                If CGSizeZero, willl use the PDF Page's mediaBox.
- *  @param aspectFit If YES, the image will keep its original aspect ratio
- *                   to fit in the size provided
- *
- *  @return The UIImage containing the rendering of the PDF page
+ *  @param context The context to draw the PDF page into
+ *  @param rect    The destination rectangle to draw the image into
+ *  @param flipped If YES, the drawing is flipped when rendered in the context.
+ *                 Useful if the context has been created using
+ *                 `UIGraphicsBeginImageContext` and not CoreGraphics functions
  */
-- (UIImage*)imageWithSize:(CGSize)size
-                aspectFit:(BOOL)aspectFit;
-
-/**
- *  Create an image from the PDF page.
- *
- *  @param size   The size of the image to create from the PDF.
- *                If CGSizeZero, willl use the PDF Page's mediaBox.
- *  @param aspectFit If YES, the image will keep its original aspect ratio
- *                   to fit in the size provided
- *  @param opaque Wheather the rendered image should be opaque or not
- *  @param scale  The scale to use when creating the bitmap.
- *                Pass 0.0 to use the current device's scale, or typically
- *                use 1.0, 2.0 or 3.0 for @1x/@2x/@3x device scales.
- *
- *  @return The UIImage containing the rendering of the PDF page at the given scale.
- */
-- (UIImage*)imageWithSize:(CGSize)size
-                aspectFit:(BOOL)aspectFit
-                   opaque:(BOOL)opaque
-                    scale:(CGFloat)scale ;
+- (void)drawInContext:(CGContextRef)context rect:(CGRect)rect flipped:(BOOL)flipped;
 
 @end

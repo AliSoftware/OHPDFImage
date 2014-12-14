@@ -32,10 +32,10 @@
  *  with the given name in the main bundle and rendering it as the given size
  *
  *  @param pdfName The name of the PDF file in the main bundle
- *  @param size    The size at which to render the image.
- *                 If CGSizeZero, it will be rendered using the PDF's MediaBox
- *  @param aspectFit If YES, the image will keep its original aspect ratio
- *                   to fit in the size provided
+ *  @param size    The bounding box size in which to render the image.
+ *                 - If CGSizeZero, it will be rendered using the PDF's MediaBox.
+ *                 - Otherwise, the image will be rendered such as it fits in the size
+ *                 and keep its aspect ratio
  *
  *  @return The UIImage corresponding to the first page of the PDF rendered at the given size.
  *
@@ -43,8 +43,7 @@
  *        not load the PDF file again.
  */
 + (instancetype)imageWithPDFNamed:(NSString*)pdfName
-                             size:(CGSize)size
-                        aspectFit:(BOOL)aspectFit;
+                        fitInSize:(CGSize)size;
 
 /**
  *  Returns an UIImage build from loading the first page of the PDF file
@@ -52,10 +51,10 @@
  *
  *  @param pdfName The name of the PDF file in the main bundle
  *  @param bundleOrNil The bundle in which to search the image in. If nil, will use the main bundle.
- *  @param size    The size at which to render the image.
- *                 If CGSizeZero, it will be rendered using the PDF's MediaBox
- *  @param aspectFit If YES, the image will keep its original aspect ratio
- *                   to fit in the size provided
+ *  @param size    The bounding box size in which to render the image.
+ *                 - If CGSizeZero, it will be rendered using the PDF's MediaBox.
+ *                 - Otherwise, the image will be rendered such as it fits in the size
+ *                 and keep its aspect ratio
  *
  *  @return The UIImage corresponding to the first page of the PDF rendered at the given size.
  *
@@ -64,6 +63,5 @@
  */
 + (instancetype)imageWithPDFNamed:(NSString*)pdfName
                          inBundle:(NSBundle*)bundleOrNil
-                             size:(CGSize)size
-                        aspectFit:(BOOL)aspectFit;
+                        fitInSize:(CGSize)size;
 @end

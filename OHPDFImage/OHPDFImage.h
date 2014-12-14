@@ -24,4 +24,5 @@
 
 #import "OHPDFDocument.h"
 #import "OHPDFPage.h"
+#import "OHVectorImage.h"
 #import "UIImage+OHPDF.h"

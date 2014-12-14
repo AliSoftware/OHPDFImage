@@ -23,47 +23,25 @@
  ***********************************************************************************/
 
 #import "UIImage+OHPDF.h"
-#import "OHPDFDocument.h"
-#import "OHPDFPage.h"
+#import "OHVectorImage.h"
 
 /***********************************************************************************/
 
 @implementation UIImage (OHPDF)
 
 + (instancetype)imageWithPDFNamed:(NSString*)pdfName
-                             size:(CGSize)size
-                        aspectFit:(BOOL)aspectFit;
+                        fitInSize:(CGSize)size;
 {
-    return [self imageWithPDFNamed:pdfName inBundle:nil size:size aspectFit:aspectFit];
+    return [self imageWithPDFNamed:pdfName inBundle:nil fitInSize:size];
 }
 
 + (instancetype)imageWithPDFNamed:(NSString*)pdfName
                          inBundle:(NSBundle*)bundleOrNil
-                             size:(CGSize)size
-                        aspectFit:(BOOL)aspectFit
+                        fitInSize:(CGSize)size
 {
-    static NSCache* pdfPagesCache;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        pdfPagesCache = [NSCache new];
-    });
-    
-    OHPDFPage* page = [pdfPagesCache objectForKey:pdfName];
-    if (!page)
-    {
-        NSString* basename = [pdfName stringByDeletingPathExtension];
-        NSString* ext = [pdfName pathExtension];
-        if (ext.length == 0) ext = @"pdf";
-        NSURL* url = [(bundleOrNil?:[NSBundle mainBundle]) URLForResource:basename withExtension:ext];
-        OHPDFDocument* doc = [OHPDFDocument documentWithURL:url];
-        page = [doc pageAtIndex:1];
-        if (page)
-        {
-            [pdfPagesCache setObject:page forKey:pdfName];
-        }
-    }
-    
-    return [page imageWithSize:size aspectFit:aspectFit];
+    OHVectorImage* vImage = [OHVectorImage imageWithPDFNamed:pdfName inBundle:bundleOrNil];
+    CGSize fitSize = [vImage sizeThatFits:size];
+    return [vImage imageWithSize:fitSize];
 }
 
 @end

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="10" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="A8Y-xD-ckf">
-                                <rect key="frame" x="244" y="40" width="338" height="31"/>
+                                <rect key="frame" x="313" y="40" width="200" height="31"/>
                                 <connections>
                                     <action selector="sliderDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="3zB-gj-LeX"/>
                                 </connections>
@@ -53,31 +53,41 @@
                                 </variation>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gkR-do-GD1">
-                                <rect key="frame" x="20" y="40" width="206" height="29"/>
+                                <rect key="frame" x="20" y="40" width="275" height="29"/>
                                 <segments>
                                     <segment title="Circle"/>
                                     <segment title="Check"/>
                                     <segment title="Dingbats"/>
+                                    <segment title="Dot"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="oKj-AD-3u5"/>
                                 </connections>
                             </segmentedControl>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nsw-pM-Afj">
+                                <rect key="frame" x="531" y="40" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="PlL-dR-BXS"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="A8Y-xD-ckf" firstAttribute="leading" secondItem="gkR-do-GD1" secondAttribute="trailing" constant="20" id="2Bg-hA-9yy"/>
+                            <constraint firstItem="Nsw-pM-Afj" firstAttribute="leading" secondItem="A8Y-xD-ckf" secondAttribute="trailing" constant="20" id="2Gq-xE-n7D"/>
                             <constraint firstItem="A8Y-xD-ckf" firstAttribute="centerY" secondItem="gkR-do-GD1" secondAttribute="centerY" constant="1" id="3wn-JT-3Sh"/>
                             <constraint firstItem="PjG-s1-6BL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="5rA-BC-9qF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PjG-s1-6BL" secondAttribute="bottom" constant="20" id="FV5-xe-wny"/>
                             <constraint firstItem="A8Y-xD-ckf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="WVA-8z-SnC"/>
                             <constraint firstItem="gkR-do-GD1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="fwg-SW-10d"/>
-                            <constraint firstAttribute="trailing" secondItem="A8Y-xD-ckf" secondAttribute="trailing" constant="20" id="kmH-pm-OYy"/>
+                            <constraint firstItem="A8Y-xD-ckf" firstAttribute="centerY" secondItem="Nsw-pM-Afj" secondAttribute="centerY" constant="-0.5" id="hpW-1C-YMZ"/>
+                            <constraint firstAttribute="trailing" secondItem="Nsw-pM-Afj" secondAttribute="trailing" constant="20" id="mzB-1E-ARV"/>
                             <constraint firstItem="PjG-s1-6BL" firstAttribute="top" secondItem="A8Y-xD-ckf" secondAttribute="bottom" constant="20" id="vEI-nb-jWA"/>
                             <constraint firstAttribute="trailing" secondItem="PjG-s1-6BL" secondAttribute="trailing" constant="20" id="xFS-Gs-HaD"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="colorSwitch" destination="Nsw-pM-Afj" id="2Ct-Zd-4x1"/>
                         <outlet property="imageView" destination="bmf-xO-df2" id="W1B-gx-iK0"/>
                         <outlet property="segmentedControl" destination="gkR-do-GD1" id="0ip-8K-EdX"/>
                         <outlet property="slider" destination="A8Y-xD-ckf" id="F6j-Mr-SbJ"/>
