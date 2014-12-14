@@ -79,6 +79,7 @@
 
 - (void)drawInContext:(CGContextRef)context rect:(CGRect)rect flipped:(BOOL)flipped
 {
+    static CGFloat const kScaleFactorIdentity = 1.0;
     CGFloat sx = rect.size.width/self.mediaBox.size.width;
     CGFloat sy = rect.size.height/self.mediaBox.size.height;
 
@@ -86,7 +87,7 @@
     CGContextConcatCTM(context, CGAffineTransformMakeScale(sx, sy));
     if (flipped)
     {
-        CGContextConcatCTM(context, CGAffineTransformMakeScale(1.0, -1.0));
+        CGContextConcatCTM(context, CGAffineTransformMakeScale(kScaleFactorIdentity, -kScaleFactorIdentity));
         CGContextConcatCTM(context, CGAffineTransformMakeTranslation(0, -self.mediaBox.size.height));
     }
     CGContextDrawPDFPage(context, _pageRef);

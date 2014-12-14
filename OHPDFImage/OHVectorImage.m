@@ -55,6 +55,7 @@
 
 + (instancetype)imageWithPDFURL:(NSURL*)pdfURL
 {
+    static size_t const kDefaultPDFPageIndexForVectorImage = 1; // Use first page by default
     static NSCache* pdfCache;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -65,7 +66,7 @@
     if (!page)
     {
         OHPDFDocument* doc = [OHPDFDocument documentWithURL:pdfURL];
-        page = [doc pageAtIndex:1];
+        page = [doc pageAtIndex:kDefaultPDFPageIndexForVectorImage];
         if (page)
         {
             [pdfCache setObject:page forKey:pdfURL];
@@ -91,8 +92,9 @@
 
 - (CGSize)sizeThatFits:(CGSize)size
 {
-    CGFloat sx = 1.0;
-    CGFloat sy = 1.0;
+    static CGFloat const kScaleFactorIdentity = 1.0;
+    CGFloat sx = kScaleFactorIdentity;
+    CGFloat sy = kScaleFactorIdentity;
     
     if (!CGSizeEqualToSize(size, CGSizeZero))
     {
