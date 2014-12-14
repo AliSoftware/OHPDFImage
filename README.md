@@ -36,24 +36,27 @@ This will load the PDF, use its first page to create an `OHVectorImage`, then ra
 ### Use the `OHVectorImage` class for more control
 
 If you need more control on the vector image, you can directly manipulate `OHVectorImage` objects.
+Here is what you can do when using `OHVectorImage`:
 
 #### Force the size without keeping the aspect ratio
 
 When you call `[OHVectorImage imageWithSize:]` with the expected size, it does not try to keep the aspect ratio, and simply use the given size as-is.
 
-On the contrary, if you want to ensure to keep the aspect ratio of the original PDF, you can compute the size that fits a given size using `[OHVectorImage sizeThatFits:]`, and then use this size when calling `imageWithSize:`.
+On the contrary, if you want to ensure to keep the aspect ratio of the original PDF, you can compute the size that fits a given size using `[OHVectorImage sizeThatFits:]`, and then use this size when calling `imageWithSize:`.  
+_(This is actually what `+[UIImage imageWithPDFNamed:fitInSize:]` does internally)_
 
 #### Change the background color of the generated image
 
-Simply use the `backgroundColor` property of your `OHVectorImage`. A `nil` `backgroundColor` will generate a transparent `UIImage`, while a non-`nil` `backgroundColor` will generate an opaque `UIImage` with the given color.
+You can use the `backgroundColor` property to change the background color of the rendered image.  
+A `nil` `backgroundColor` will generate a transparent `UIImage`, while a non-`nil` `backgroundColor` will generate an opaque `UIImage` with the given background color.
 
 #### Re-tint the image
 
 You can use the `tintColor` property to recolor the vector image, so that the vector graphics are merely used as a mask and rendered using a new color.
 
-The generated image will only use the alpha channel of the PDF vector image. It will fill the opaque parts of the PDF with the `tintColor`, keep the transparent parts transparent, and use semi-transparent parts as alpha value.
+In such case, the generated image will only use the alpha channel of the PDF vector image. It will fill the opaque parts of the PDF with the `tintColor`, keep the transparent parts transparent, and fill semi-transparent parts depending on their alpha value.
 
-#### Example
+#### Complete Example
 
 ```objc
 OHVectorImage* vImage = [OHVectorImage imageWithPDFNamed:imageName];
