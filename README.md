@@ -16,9 +16,20 @@ The recommended way to install this library is using [CocoaPods](http://guides.c
 pod 'OHPDFImage'
 ```
 
-## Using a PDF as an image
+## Add PDF files to your project
 
-> The following examples suppose that you have added a PDF file `"vector_image.pdf"` to your project — as a resource included in your app target.
+If you intend to use a PDF as a vector image, you should add it as a resource in your project. Especially, you should **NOT** add the PDF in you `Images.xcassets` Assets Catalog.
+
+### Don't use Assets Catalog for PDF files
+
+Xcode 6 accept PDF files to be added to an Assets Catalog, but when you do so, it in fact re-create PNG assets at compile time, embedding the rasterized bitmaps in the final application instead of embedding the original PDF vector image. That's why you should add the PDF file as a standard resource and not in the `xcassets` catalog.
+
+### Export PDFs using Photoshop
+
+If your vector image has been created using Photoshop and you intend to export it as PDF, you may choose the "Save As…" menu item and choose the "Photoshop PDF" file format to create the PDF.  
+In that case, be careful to select the **"High Quality Print" preset**, which is the only preset that conserve the PDF transparency / alpha channel.
+
+## Using a PDF as an image
 
 ### Use the `UIImage` category
 
