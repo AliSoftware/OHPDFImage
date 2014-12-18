@@ -24,7 +24,7 @@ If you intend to use a PDF as a vector image, you should add it as a resource in
 
 Xcode 6 accept PDF files to be added to an Assets Catalog, but when you do so, it in fact re-create PNG assets at compile time, embedding the rasterized bitmaps in the final application instead of embedding the original PDF vector image. That's why you should add the PDF file as a standard resource and not in the `xcassets` catalog.
 
-#### Export PDFs using Photoshop
+#### Exporting PDFs from Photoshop
 
 If your vector image has been created using Photoshop and you intend to export it as PDF, you may choose the "Save As…" menu item and choose the "Photoshop PDF" file format to create the PDF.  
 In that case, be careful to select the **"High Quality Print" preset**, which is the only preset that conserve the PDF transparency / alpha channel.
@@ -80,10 +80,14 @@ If you want to keep the aspect ratio of the original PDF, you can compute the si
 OHVectorImage* vImage = [OHVectorImage imageWithPDFNamed:@"vector_image"];
 vImage.backgroundColor = [UIColor colorWithRed:0.9 green:1.0 blue:0.9 alpha:1.0];
 vImage.tintColor = [UIColor redColor];
+// Shadow & Insets
 vImage.shadow = [NSShadow new];
 vImage.shadow.shadowOffset = CGSizeMake(2,2);
+vImage.shadow.shadowBlurRadius = 3.f;
+vImage.shadow.shadowColor = [UIColor darkGrayColor];
 vImage.insets = UIEdgeInsetsMake(0,0,5,5);
-CGSize fitSize = [vImage sizeThatFits:imageViewSize]; // Ensure to keep aspect ratio
+// Render as an UIImage, ensuring to keep aspect ratio
+CGSize fitSize = [vImage sizeThatFits:imageViewSize];
 UIImage* image = [vImage renderAtSize:fitSize];
 ```
 
