@@ -27,6 +27,10 @@
 
 /***********************************************************************************/
 
+@interface OHPDFDocument()
+- (instancetype)initWithRef:(CGPDFDocumentRef)docRef NS_DESIGNATED_INITIALIZER;
+@end
+
 @implementation OHPDFDocument
 
 #pragma mark - Constructors
@@ -45,11 +49,19 @@
 
 + (instancetype)documentWithRef:(CGPDFDocumentRef)docRef
 {
-    OHPDFDocument* doc = [self new];
-    CGPDFDocumentRetain(docRef);
-    doc->_documentRef = docRef;
-    doc->_pagesCount = CGPDFDocumentGetNumberOfPages(docRef);
-    return doc;
+    return [[self alloc] initWithRef:docRef];
+}
+
+- (instancetype)initWithRef:(CGPDFDocumentRef)docRef
+{
+    self = [super init];
+    if (self)
+    {
+        CGPDFDocumentRetain(docRef);
+        _documentRef = docRef;
+        _pagesCount = CGPDFDocumentGetNumberOfPages(docRef);
+    }
+    return self;
 }
 
 - (void)dealloc

@@ -29,9 +29,9 @@
 /***********************************************************************************/
 
 @interface OHVectorImage()
+- (instancetype)initWithPDFPage:(OHPDFPage*)pdfPage NS_DESIGNATED_INITIALIZER;
 @property(nonatomic, strong) OHPDFPage* pdfPage;
 @end
-
 
 
 @implementation OHVectorImage
@@ -78,14 +78,31 @@
 
 + (instancetype)imageWithPDFPage:(OHPDFPage*)pdfPage
 {
-    OHVectorImage* vImage = nil;
-    if (pdfPage)
+    return [[self alloc] initWithPDFPage:pdfPage];
+}
+
+- (instancetype)initWithPDFPage:(OHPDFPage*)pdfPage
+{
+    if (!pdfPage) return nil;
+    
+    self = [super init];
+    if (self)
     {
-        vImage = [self new];
-        vImage.pdfPage = pdfPage;
-        vImage->_nativeSize = pdfPage.mediaBox.size;
+        _pdfPage = pdfPage;
+        _nativeSize = pdfPage.mediaBox.size;
     }
-    return vImage;
+    return self;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    OHVectorImage* copy = [OHVectorImage imageWithPDFPage:self.pdfPage];
+    copy.tintColor = [self.tintColor copy];
+    copy.backgroundColor = [self.backgroundColor copy];
+    copy.shadow = [self.shadow copy];
+    copy.insets = self.insets;
+    copy.prepareContextBlock = [self.prepareContextBlock copy];
+    return copy;
 }
 
 #pragma mark - Rendering at a given size

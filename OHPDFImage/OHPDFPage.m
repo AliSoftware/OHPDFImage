@@ -27,14 +27,26 @@
 
 /***********************************************************************************/
 
+@interface OHPDFPage()
+- (instancetype)initWithRef:(CGPDFPageRef)pageRef NS_DESIGNATED_INITIALIZER;
+@end
+
 @implementation OHPDFPage
 
 + (instancetype)pageWithRef:(CGPDFPageRef)pageRef
 {
-    OHPDFPage* page = [self new];
-    CGPDFPageRetain(pageRef);
-    page->_pageRef = pageRef;
-    return page;
+    return [[self alloc] initWithRef:pageRef];
+}
+
+- (instancetype)initWithRef:(CGPDFPageRef)pageRef
+{
+    self = [super init];
+    if (self)
+    {
+        CGPDFPageRetain(pageRef);
+        _pageRef = pageRef;
+    }
+    return self;
 }
 
 - (void)dealloc

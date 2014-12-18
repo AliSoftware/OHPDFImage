@@ -36,7 +36,7 @@
  *  and also compute the size that fits a given input size (for when you need
  *  to keep original aspect ratio).
  */
-@interface OHVectorImage : NSObject
+@interface OHVectorImage : NSObject <NSCopying>
 
 #pragma mark - Properties
 
