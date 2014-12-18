@@ -31,9 +31,10 @@
  *  This class represents a vector image, typically loaded from a PDF file.
  *
  *  It allows you to query the expected rendering size (mediaBox of the PDF)
- *  and render it as an UIImage using various parameters like a given
- *  backgroundColor, tintColor and custom size, and also compute the size
- *  that fits a given input size when you need to keep original aspect ratio.
+ *  and render it as an `UIImage` using various parameters like a given
+ *  backgroundColor, tintColor, drop shadow, margins/insets and custom size,
+ *  and also compute the size that fits a given input size (for when you need
+ *  to keep original aspect ratio).
  */
 @interface OHVectorImage : NSObject
 
@@ -42,17 +43,52 @@
 /**
  *  The color to tint the image with.
  *
- *  - If nil (the default), no special tint is applied.
- *  - If non-nil, the image will be recolored entierly using this color.
+ *  - If `nil` (the default), no special tint is applied.
+ *  - If non-`nil`, the image will be recolored entierly using this color.
  *    In that case, only the alpha component or the image is used
  */
 @property(nonatomic, strong) UIColor* tintColor;
 
 /**
- *  The background color to apply to the image when rendering into an UIImage.
- *  If nil (the default), the image will have transparent background.
+ *  The background color to apply to the image when rendering into an `UIImage`.
+ *
+ *  If `nil` (the default), the image will have a transparent background.
  */
 @property(nonatomic, strong) UIColor* backgroundColor;
+
+/**
+ *  The drop shadow to add when rendering.
+ *
+ *  If `nil` (the default), no drop shadow will be added.
+ *
+ *  @note The shadow parameters (especially `shadowOffset` and `shadowBlurRadius`)
+ *        are expressed in the coordinate system of the original vector image,
+ *        (i.e. the scale of the values are the same as those of the `nativeSize`),
+ *        so that they are independant of the size the vector image will be rendered.
+ */
+@property(nonatomic, strong) NSShadow* shadow;
+
+/**
+ *  The insets (margins) to add to the vector image.
+ *
+ *  You may use this property to add margins around the vector image
+ *  when you have set a `shadow`, to ensure its shadow won't be clipped.
+ *  You may also use this property to translate the image or to remove
+ *  margins (using negative values) that are too large in the original PDF.
+ *
+ *  @note The insets are expressed in the coordinate system of the original
+ *        vector image (i.e. the scale of the values are the same as those of
+ *        the `nativeSize`), so that they are independant of the size the
+ *        vector image will be rendered.
+ */
+@property(nonatomic, assign) UIEdgeInsets insets;
+
+/**
+ *  If non-`nil`, this block will be called right before drawing the PDF
+ *  onto the bitmap context. Will allows you to fully customize the graphic
+ *  context for rendering, like applying an affine transform, etc.
+ */
+@property(nonatomic, copy) void(^prepareContextBlock)(CGContextRef ctx);
 
 /**
  *  The size the Vector image was designed to be rendered in.
@@ -67,7 +103,7 @@
  *
  *  @param pdfName The name of the PDF file in the main bundle
  *
- *  @return The OHVectorImage corresponding to the first page of the PDF.
+ *  @return The `OHVectorImage` corresponding to the first page of the PDF.
  *
  *  @note PDF images are cached.
  */
@@ -79,12 +115,12 @@
  *
  *  @param pdfName     The name of the PDF file in the main bundle
  *  @param bundleOrNil The bundle in which to search the image in.
- *                     If nil, will use the main bundle.
+ *                     If `nil`, will use the main bundle.
  *
- *  @return The OHVectorImage corresponding to the first page of the PDF.
+ *  @return The `OHVectorImage` corresponding to the first page of the PDF.
  *
- *  @note PDF pages are cached, but requesting a OHVectorImage with the same name
- *        twice will still lead to a new OHVectorImage with independant tintColor
+ *  @note PDF pages are cached, but requesting a `OHVectorImage` with the same name
+ *        twice will still lead to a new `OHVectorImage` with independant tintColor
  *        and backgroundColor.
  */
 + (instancetype)imageWithPDFNamed:(NSString*)pdfName
@@ -96,11 +132,11 @@
  *
  *  @param pdfURL The URL of the PDF file to load
  *
- *  @return The OHVectorImage corresponding to the first page of the PDF
+ *  @return The `OHVectorImage` corresponding to the first page of the PDF
  *
- *  @note PDF pages are cached, but requesting a OHVectorImage with the same name
- *        twice will still lead to a new OHVectorImage with independant tintColor
- *        and backgroundColor.
+ *  @note PDF pages are cached, but requesting a `OHVectorImage` with the same name
+ *        twice will still lead to a new `OHVectorImage` with independant `tintColor`
+ *        and `backgroundColor`.
  */
 + (instancetype)imageWithPDFURL:(NSURL*)pdfURL;
 
@@ -109,14 +145,14 @@
  *
  *  @param pdfPage The OHPDFPage to create the image from
  *
- *  @return The OHVectorImage corresponding to the given page of the PDF
+ *  @return The `OHVectorImage` corresponding to the given page of the PDF
  */
 + (instancetype)imageWithPDFPage:(OHPDFPage*)pdfPage;
 
 #pragma mark - Rendering at a given size
 
 /**
- *  Returns the CGSize that would make the OHVectorImage fit in the
+ *  Returns the CGSize that would make the `OHVectorImage` fit in the
  *  given size while keeping its aspect ratio.
  *
  *  @param size The bounding box size in which the image should fit
@@ -127,13 +163,15 @@
 - (CGSize)sizeThatFits:(CGSize)size;
 
 /**
- *  Render the OHVectorImage as a bitmap image with the given size
+ *  Render the `OHVectorImage` as a bitmap image with the given size
  *
  *  @param size The size to render the image
  *
- *  @return The UIImage obtained by rendering the vector image to the given size.
+ *  @return The `UIImage` obtained by rendering the vector image to the given size.
  *
- *  @note This method uses the `tintColor` and `backgroundColor` when rendering.
+ *  @note This method uses the various `OHVectorImage`'s properties
+ *        (`tintColor`, `backgroundColor`, `shadow`, `insets`) when rendering.
  */
-- (UIImage*)imageWithSize:(CGSize)size;
+- (UIImage*)renderAtSize:(CGSize)size;
+
 @end

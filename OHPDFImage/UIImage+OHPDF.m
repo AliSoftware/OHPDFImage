@@ -41,7 +41,7 @@
 {
     OHVectorImage* vImage = [OHVectorImage imageWithPDFNamed:pdfName inBundle:bundleOrNil];
     CGSize fitSize = [vImage sizeThatFits:size];
-    return [vImage imageWithSize:fitSize];
+    return [vImage renderAtSize:fitSize];
 }
 
 @end

@@ -90,53 +90,83 @@
 
 #pragma mark - Rendering at a given size
 
-- (CGSize)sizeThatFits:(CGSize)size
+- (CGSize)insetNativeSize
+{
+    return (CGSize){
+        .width  = self.nativeSize.width + self.insets.left + self.insets.right,
+        .height = self.nativeSize.height + self.insets.top + self.insets.bottom
+    };
+}
+- (CGSize)scaleForSize:(CGSize)size
 {
     static CGFloat const kScaleFactorIdentity = 1.0;
     CGFloat sx = kScaleFactorIdentity;
     CGFloat sy = kScaleFactorIdentity;
     
-    if (!CGSizeEqualToSize(size, CGSizeZero))
+    CGSize insetSize = self.insetNativeSize;
+    if (!CGSizeEqualToSize(insetSize, CGSizeZero))
     {
-        sx = size.width / self.nativeSize.width;
-        sy = size.height / self.nativeSize.height;
-        sx = sy = MIN(sx,sy);
+        sx = size.width / insetSize.width;
+        sy = size.height / insetSize.height;
     }
     
-    return CGSizeMake(self.nativeSize.width*sx, self.nativeSize.height*sy);
+    return CGSizeMake(sx,sy);
 }
 
-- (UIImage*)imageWithSize:(CGSize)size
+- (CGSize)sizeThatFits:(CGSize)size
 {
-    CGRect rect = (CGRect){ .origin = CGPointZero, .size = size };
+    CGSize scale = [self scaleForSize:size];
+    CGFloat minScale = MIN(scale.width, scale.height);
     
-    if (self.tintColor)
-    {
-        UIImage* mask = [self imageWithSize:size backgroundColor:nil drawingBlock:^(CGContextRef ctx) {
-            // flipped=NO because we want to keep the image in the CoreGraphics coordinates system
-            // as it will be used with CGContextClipToMask
-            [self.pdfPage drawInContext:ctx rect:rect flipped:NO];
-        }];
+    return (CGSize){
+        .width  = self.insetNativeSize.width * minScale,
+        .height = self.insetNativeSize.height * minScale
+    };
+}
 
-        return [self imageWithSize:size backgroundColor:self.backgroundColor drawingBlock:^(CGContextRef ctx) {
-            CGContextClipToMask(ctx, rect, mask.CGImage);
+- (UIImage*)renderAtSize:(CGSize)size
+{
+    CGRect fullRect = (CGRect){ .origin = CGPointZero, .size = size };
+    CGSize scale = [self scaleForSize:size];
+    UIEdgeInsets scaledInsets = (UIEdgeInsets){
+        .top    = self.insets.top    * scale.height,
+        .left   = self.insets.left   * scale.width,
+        .bottom = self.insets.bottom * scale.height,
+        .right  = self.insets.right  * scale.width
+    };
+    CGRect insetRect = UIEdgeInsetsInsetRect(fullRect, scaledInsets);
+    
+    return [self generateImageWithSize:size backgroundColor:self.backgroundColor drawingBlock:^(CGContextRef ctx) {
+        if (self.prepareContextBlock) self.prepareContextBlock(ctx);
+        
+        if (self.shadow)
+        {
+            UIColor* shadowColor = (UIColor*)self.shadow.shadowColor;
+            CGSize offset = self.shadow.shadowOffset;
+            offset.height *= -1; // inverted coordinates between CoreGraphics and UIKit
+            CGContextSetShadowWithColor(ctx, offset, self.shadow.shadowBlurRadius, shadowColor.CGColor);
+        }
+        [self.pdfPage drawInContext:ctx rect:insetRect flipped:YES];
+        
+        if (self.tintColor)
+        {
+            UIImage* mask = [self generateImageWithSize:size backgroundColor:nil drawingBlock:^(CGContextRef ctx) {
+                // flipped=NO because we want to keep the image in the CoreGraphics coordinates system
+                // as it will be used with CGContextClipToMask
+                [self.pdfPage drawInContext:ctx rect:fullRect flipped:NO];
+            }];
+            CGContextClipToMask(ctx, insetRect, mask.CGImage);
             CGContextSetFillColorWithColor(ctx, self.tintColor.CGColor);
-            CGContextFillRect(ctx, rect);
-        }];
-    }
-    else
-    {
-        return [self imageWithSize:size backgroundColor:self.backgroundColor drawingBlock:^(CGContextRef ctx) {
-            [self.pdfPage drawInContext:ctx rect:rect flipped:YES];
-        }];
-    }
+            CGContextFillRect(ctx, fullRect);
+        }
+    }];
 }
 
 #pragma mark - Private Methods
 
-- (UIImage*)imageWithSize:(CGSize)size
-             backgroundColor:(UIColor*)bkgColor
-             drawingBlock:( void(^)(CGContextRef ctx) )block
+- (UIImage*)generateImageWithSize:(CGSize)size
+                  backgroundColor:(UIColor*)bkgColor
+                     drawingBlock:( void(^)(CGContextRef ctx) )block
 {
     UIImage* image = nil;
     UIGraphicsBeginImageContextWithOptions(size, (bkgColor != nil), 0.0);

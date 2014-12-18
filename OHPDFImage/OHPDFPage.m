@@ -83,6 +83,8 @@
     CGFloat sx = rect.size.width/self.mediaBox.size.width;
     CGFloat sy = rect.size.height/self.mediaBox.size.height;
 
+    CGContextSaveGState(context);
+
     CGContextConcatCTM(context, CGAffineTransformMakeTranslation(rect.origin.x, rect.origin.y));
     CGContextConcatCTM(context, CGAffineTransformMakeScale(sx, sy));
     if (flipped)
@@ -91,6 +93,8 @@
         CGContextConcatCTM(context, CGAffineTransformMakeTranslation(0, -self.mediaBox.size.height));
     }
     CGContextDrawPDFPage(context, _pageRef);
+    
+    CGContextRestoreGState(context);
 }
 
 @end

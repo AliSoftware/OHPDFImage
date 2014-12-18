@@ -49,34 +49,47 @@ This will load the PDF, use its first page to create an `OHVectorImage`, then ra
 If you need more control on the vector image, you can directly manipulate `OHVectorImage` objects.
 Here is what you can do when using `OHVectorImage`:
 
-#### Force the size without keeping the aspect ratio
+* **Change the background color** of the generated image using the `backgroundColor` property (`nil` to generate transparent images);
+* **Re-tint the image** using the `tintColor` property (in that case the PDF is merely used as a mask for which only its alpha channel is used);
+* **Add a drop shadow** using the `shadow` property (a `NSShadow` object that lets you customize the shadow offset, blur radius and color);
+* **Add insets** (`UIEdgeInsets`) to the image when rendering:
+  * either to translate the image to any direction,
+  * or to add margins to the image (useful when you add a drop shadow to ensure it is not clipped),
+  * or to reduce/remove margins present in the original PDF (by using negative insets)
+  * ...
+* Customize the graphic context before the vector image is rendered using the `prepareContextBlock` property
+  * Intended for advanced usage, for example if you need to add any custom configuration to the `CGContextRef` (like applying a custom transform or adding a custom clipping path or whatnot)
 
-When you call `[OHVectorImage imageWithSize:]` with the expected size, it does not try to keep the aspect ratio, and simply use the given size as-is.
+#### Drop shadow an insets
 
-On the contrary, if you want to ensure to keep the aspect ratio of the original PDF, you can compute the size that fits a given size using `[OHVectorImage sizeThatFits:]`, and then use this size when calling `imageWithSize:`.  
-_(This is actually what `+[UIImage imageWithPDFNamed:fitInSize:]` does internally)_
+Drop shadow values (offset and blur radius) as well as insets are expressed in the coordinate system of the vector image (i.e. with the same scale as when the vector image is rendered using its `nativeSize`), so that they can be resolution-independant.
 
-#### Change the background color of the generated image
+This way, if you add a drop shadow with `shadowOffset = (CGSize){2,2}` and `blurRadius = 3` then you can safely use an `inset = (UIEdgeInsets){ .right = 5, .bottom = 5 }` to ensure the shadow won't be clipped, without worrying about the size at which the image will be rendered.
 
-You can use the `backgroundColor` property to change the background color of the rendered image.  
-A `nil` `backgroundColor` will generate a transparent `UIImage`, while a non-`nil` `backgroundColor` will generate an opaque `UIImage` with the given background color.
+#### Keeping aspect ratio
 
-#### Re-tint the image
+When you call `-[OHVectorImage renderAtSize:]` with the expected size, it does not try to keep the aspect ratio, and simply use the given size as-is ("Scale to Fill" behavior).
 
-You can use the `tintColor` property to recolor the vector image, so that the vector graphics are merely used as a mask and rendered using a new color.
+If you want to keep the aspect ratio of the original PDF, you can compute the size that fits a given size using `[OHVectorImage sizeThatFits:]` first, and then use this size when calling `renderAtSize:`.
 
-In such case, the generated image will only use the alpha channel of the PDF vector image. It will fill the opaque parts of the PDF with the `tintColor`, keep the transparent parts transparent, and fill semi-transparent parts depending on their alpha value.
+> _Note: This is actually what `+[UIImage imageWithPDFNamed:fitInSize:]` does internally._
 
-#### Complete Example
+
+#### Example
 
 ```objc
 OHVectorImage* vImage = [OHVectorImage imageWithPDFNamed:@"vector_image"];
-CGSize fitSize = [vImage sizeThatFits:imageViewSize]; // Ensure to keep aspect ratio
 vImage.backgroundColor = [UIColor colorWithRed:0.9 green:1.0 blue:0.9 alpha:1.0];
 vImage.tintColor = [UIColor redColor];
-UIImage* image = [vImage imageWithSize:fitSize];
+vImage.shadow = [NSShadow new];
+vImage.shadow.shadowOffset = CGSizeMake(2,2);
+vImage.insets = UIEdgeInsetsMake(0,0,5,5);
+CGSize fitSize = [vImage sizeThatFits:imageViewSize]; // Ensure to keep aspect ratio
+UIImage* image = [vImage renderAtSize:fitSize];
 ```
 
+A complete example is also available in the Demo project provided in this repo.
+Don't hesitate to try it (you may use `pod try OHPDFImage` to give it a try even if you haven't cloned the repo yet!)
 
 ## Loading a PDF document
 
@@ -96,7 +109,7 @@ for(size_t pageNum = 0; pageNum < doc.pagesCount; ++pageNum)
 {
   OHPDFPage* page = [doc pageAtIndex:pageNum+1]; // Note: page indexes start at 1
   OHVectorImage* vImage = [OHVectorImage imageWithPDFPage:page];
-  [frames addObject:[vImages imageWithSize:frameSize]];
+  [frames addObject:[vImages renderAtSize:frameSize]];
 }
 
 NSTimeInterval duration = doc.pagesCount * 2.0; // 2.0s per frame 
