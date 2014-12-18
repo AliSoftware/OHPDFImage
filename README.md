@@ -16,22 +16,22 @@ The recommended way to install this library is using [CocoaPods](http://guides.c
 pod 'OHPDFImage'
 ```
 
-## Add PDF files to your project
+## Adding PDF files to your project
 
 If you intend to use a PDF as a vector image, you should add it as a resource in your project. Especially, you should **NOT** add the PDF in you `Images.xcassets` Assets Catalog.
 
-### Don't use Assets Catalog for PDF files
+#### Don't use Assets Catalog for PDF files
 
 Xcode 6 accept PDF files to be added to an Assets Catalog, but when you do so, it in fact re-create PNG assets at compile time, embedding the rasterized bitmaps in the final application instead of embedding the original PDF vector image. That's why you should add the PDF file as a standard resource and not in the `xcassets` catalog.
 
-### Export PDFs using Photoshop
+#### Export PDFs using Photoshop
 
 If your vector image has been created using Photoshop and you intend to export it as PDF, you may choose the "Save As…" menu item and choose the "Photoshop PDF" file format to create the PDF.  
 In that case, be careful to select the **"High Quality Print" preset**, which is the only preset that conserve the PDF transparency / alpha channel.
 
 ## Using a PDF as an image
 
-### Use the `UIImage` category
+### The `UIImage` category
 
 If you simply intend to use the PDF as an image as-is, you can use:
 
@@ -44,10 +44,9 @@ This will load the PDF, use its first page to create an `OHVectorImage`, then ra
 
 > Note: PDF pages are cached, so that requesting an image with the same PDF name, even with a different size, will use the cached version of the PDF instead of loading it again from disk. Thus, only the rasterization into a bitmap image is recreated.
 
-### Use the `OHVectorImage` class for more control
+### More control with the `OHVectorImage` class
 
-If you need more control on the vector image, you can directly manipulate `OHVectorImage` objects.
-Here is what you can do when using `OHVectorImage`:
+If you need more options on how the vector image will be rendered, you can directly manipulate `OHVectorImage` objects. Here is what you can do when using `OHVectorImage`:
 
 * **Change the background color** of the generated image using the `backgroundColor` property (`nil` to generate transparent images);
 * **Re-tint the image** using the `tintColor` property (in that case the PDF is merely used as a mask for which only its alpha channel is used);
@@ -57,8 +56,8 @@ Here is what you can do when using `OHVectorImage`:
   * or to add margins to the image (useful when you add a drop shadow to ensure it is not clipped),
   * or to reduce/remove margins present in the original PDF (by using negative insets)
   * ...
-* Customize the graphic context before the vector image is rendered using the `prepareContextBlock` property
-  * Intended for advanced usage, for example if you need to add any custom configuration to the `CGContextRef` (like applying a custom transform or adding a custom clipping path or whatnot)
+* **Customize the graphic context** before the vector image is rendered, using the `prepareContextBlock` property
+  * This is mostly intended for advanced usage, like applying a custom transform or adding a custom clipping path to the `CGContextRef` before rendering the PDF vector image.
 
 #### Drop shadow an insets
 
