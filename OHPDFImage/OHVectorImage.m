@@ -46,6 +46,8 @@
 + (instancetype)imageWithPDFNamed:(NSString*)pdfName
                          inBundle:(NSBundle*)bundleOrNil
 {
+    if (!pdfName) return nil;
+    
     NSString* basename = [pdfName stringByDeletingPathExtension];
     NSString* ext = [pdfName pathExtension];
     if (ext.length == 0) ext = @"pdf";
@@ -55,6 +57,8 @@
 
 + (instancetype)imageWithPDFURL:(NSURL*)pdfURL
 {
+    if (!pdfURL) return nil;
+    
     static size_t const kDefaultPDFPageIndexForVectorImage = 1; // Use first page by default
     static NSCache* pdfCache;
     static dispatch_once_t onceToken;

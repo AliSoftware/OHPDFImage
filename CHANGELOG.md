@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.1
+
+* Fixed an issue when passing `nil` to `OHVectorImage` initializers
+
 ## 3.0.0
 
 * Added `shadow` and `insets` properties to `OHVectorImage`
