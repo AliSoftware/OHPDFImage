@@ -3,8 +3,10 @@
 ## 3.0.0
 
 * Added `shadow` and `insets` properties to `OHVectorImage`
-* Refactor the code used to tint the image rendering to be compatible with the shadow (especially avoid tinting the shadow itself)
+* Renamed `imageWithSize:` to `renderAtSize:` _(to clarify API and avoid confusion with convenience initializers)_
+* Refactor the code used to tint the image rendering _(to avoid tinting the shadow itself)_
 * Added `<NSCopying>` conformance to `OHVectorImage`
+* Using `NS_DESIGNATED_INITIALIZER`
 * Improved documentation
 
 ## 2.0.1
