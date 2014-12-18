@@ -24,7 +24,7 @@ If you intend to use a PDF as a vector image, you should add it as a resource in
 
 Xcode 6 accept PDF files to be added to an Assets Catalog, but when you do so, it in fact re-create PNG assets at compile time, embedding the rasterized bitmaps in the final application instead of embedding the original PDF vector image. That's why you should add the PDF file as a standard resource and not in the `xcassets` catalog.
 
-#### Exporting PDFs from Photoshop
+#### Exporting PDF files from Photoshop
 
 If your vector image has been created using Photoshop and you intend to export it as PDF, you may choose the "Save As…" menu item and choose the "Photoshop PDF" file format to create the PDF.  
 In that case, be careful to select the **"High Quality Print" preset**, which is the only preset that conserve the PDF transparency / alpha channel.
@@ -59,7 +59,7 @@ If you need more options on how the vector image will be rendered, you can direc
 * **Customize the graphic context** before the vector image is rendered, using the `prepareContextBlock` property
   * This is mostly intended for advanced usage, like applying a custom transform or adding a custom clipping path to the `CGContextRef` before rendering the PDF vector image.
 
-#### Drop shadow an insets
+#### Drop shadow and insets
 
 Drop shadow values (offset and blur radius) as well as insets are expressed in the coordinate system of the vector image (i.e. with the same scale as when the vector image is rendered using its `nativeSize`), so that they can be resolution-independant.
 
@@ -67,11 +67,13 @@ This way, if you add a drop shadow with `shadowOffset = (CGSize){2,2}` and `blur
 
 #### Keeping aspect ratio
 
-When you call `-[OHVectorImage renderAtSize:]` with the expected size, it does not try to keep the aspect ratio, and simply use the given size as-is ("Scale to Fill" behavior).
+When you call `-[OHVectorImage renderAtSize:]` with the expected size, it does not try to keep the aspect ratio, and simply use the given size as-is, stretching the image if necessary ("Scale to Fill" behavior).
 
-If you want to keep the aspect ratio of the original PDF, you can compute the size that fits a given size using `[OHVectorImage sizeThatFits:]` first, and then use this size when calling `renderAtSize:`.
+If you want to keep the aspect ratio of the original PDF, you can compute the size that fits a given size using `[OHVectorImage sizeThatFits:]` first, and then use this size when calling `renderAtSize:`.  
 
 > _Note: This is actually what `+[UIImage imageWithPDFNamed:fitInSize:]` does internally._
+
+The `sizeThatFits:` method takes the vector image's `insets` property into account when computing the fitting size — as these `insets` values will be applied when rendering as well.
 
 
 #### Example
