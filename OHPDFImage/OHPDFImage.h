@@ -22,6 +22,15 @@
  *
  ***********************************************************************************/
 
+// For SDK 7.1 Compatibility (as this macro was only included starting SDK 8.0)
+#ifndef NS_DESIGNATED_INITIALIZER
+  #if __has_attribute(objc_designated_initializer)
+    #define NS_DESIGNATED_INITIALIZER __attribute__((objc_designated_initializer))
+  #else
+    #define NS_DESIGNATED_INITIALIZER
+  #endif
+#endif
+
 #import "OHPDFDocument.h"
 #import "OHPDFPage.h"
 #import "OHVectorImage.h"
