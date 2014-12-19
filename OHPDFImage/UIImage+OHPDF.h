@@ -52,6 +52,43 @@
 
 /**
  *  Returns an UIImage build from loading the first page of the PDF file
+ *  with the given name in the main bundle and rendering it as the given size
+ *
+ *  @param pdfName The name of the PDF file in the main bundle
+ *  @param size    The bounding box size in which to render the image.
+ *                 - If CGSizeZero, it will be rendered using the PDF's MediaBox.
+ *                 - Otherwise, the image will be rendered such as it fits in the width
+ *                 and keep its aspect ratio
+ *
+ *  @return The UIImage corresponding to the first page of the PDF rendered at the given size.
+ *
+ *  @note PDF Images are cached so that requesting it a second time with a different size will
+ *        not load the PDF file again.
+ */
++ (instancetype)imageWithPDFNamed:(NSString*)pdfName
+                       fitInWidth:(CGFloat)width;
+
+
+/**
+ *  Returns an UIImage build from loading the first page of the PDF file
+ *  with the given name in the main bundle and rendering it as the given size
+ *
+ *  @param pdfName The name of the PDF file in the main bundle
+ *  @param size    The bounding box size in which to render the image.
+ *                 - If CGSizeZero, it will be rendered using the PDF's MediaBox.
+ *                 - Otherwise, the image will be rendered such as it fits in the height
+ *                 and keep its aspect ratio
+ *
+ *  @return The UIImage corresponding to the first page of the PDF rendered at the given size.
+ *
+ *  @note PDF Images are cached so that requesting it a second time with a different size will
+ *        not load the PDF file again.
+ */
++ (instancetype)imageWithPDFNamed:(NSString*)pdfName
+                        fitInHeight:(CGFloat)height;
+
+/**
+ *  Returns an UIImage build from loading the first page of the PDF file
  *  with the given name in the given bundle and rendering it as the given size
  *
  *  @param pdfName The name of the PDF file in the main bundle
