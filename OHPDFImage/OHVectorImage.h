@@ -152,6 +152,21 @@
 #pragma mark - Rendering at a given size
 
 /**
+ *  Returns the horizontal and vertical scales to apply if we want
+ *  to render the PDF image to the given size.
+ *
+ *  @param size The size to scale the image to
+ *
+ *  @return The scale to apply horizontally and vertically to the
+ *          `nativeSize` of the original PDF so that it fill the
+ *          given `size`.
+ *
+ *  @note This takes the vector image's `insets` into account
+ *        when computing the scale.
+ */
+- (CGSize)scaleForSize:(CGSize)size;
+
+/**
  *  Returns the CGSize that would make the `OHVectorImage` fit in the
  *  given size while keeping its aspect ratio.
  *
@@ -159,6 +174,10 @@
  *
  *  @return The maximum size of the image so that it fits in the given
  *          size without changing its aspect ratio.
+ *
+ *  @note If the size contains fractional width or height, it is rounded
+ *        to the smallest integer value (using `roundf`) to avoid subpixelling
+ *        and blurry edges on the final image)
  */
 - (CGSize)sizeThatFits:(CGSize)size;
 
@@ -171,6 +190,10 @@
  *
  *  @note This method uses the various `OHVectorImage`'s properties
  *        (`tintColor`, `backgroundColor`, `shadow`, `insets`) when rendering.
+ *
+ *  @note If the size contains fractional width or height, it is rounded
+ *        to the smallest integer value (using `roundf`) to avoid subpixelling
+ *        and blurry edges on the final image)
  */
 - (UIImage*)renderAtSize:(CGSize)size;
 

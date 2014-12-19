@@ -140,14 +140,13 @@
     CGFloat minScale = MIN(scale.width, scale.height);
     
     return (CGSize){
-        .width  = self.insetNativeSize.width * minScale,
-        .height = self.insetNativeSize.height * minScale
+        .width  = roundf(self.insetNativeSize.width * minScale),
+        .height = roundf(self.insetNativeSize.height * minScale)
     };
 }
 
 - (UIImage*)renderAtSize:(CGSize)size
 {
-    CGRect fullRect = (CGRect){ .origin = CGPointZero, .size = size };
     CGSize scale = [self scaleForSize:size];
     UIEdgeInsets scaledInsets = (UIEdgeInsets){
         .top    = self.insets.top    * scale.height,
@@ -155,9 +154,10 @@
         .bottom = self.insets.bottom * scale.height,
         .right  = self.insets.right  * scale.width
     };
-    CGRect insetRect = UIEdgeInsetsInsetRect(fullRect, scaledInsets);
+    CGRect fullRect  = CGRectIntegral( (CGRect){ .origin = CGPointZero, .size = size } );
+    CGRect insetRect = CGRectIntegral( UIEdgeInsetsInsetRect(fullRect, scaledInsets) );
     
-    return [self generateImageWithSize:size backgroundColor:self.backgroundColor drawingBlock:^(CGContextRef ctx) {
+    return [self generateImageWithSize:fullRect.size backgroundColor:self.backgroundColor drawingBlock:^(CGContextRef ctx) {
         if (self.prepareContextBlock) self.prepareContextBlock(ctx);
         
         if (self.shadow)
@@ -171,9 +171,11 @@
         
         if (self.tintColor)
         {
-            UIImage* mask = [self generateImageWithSize:size backgroundColor:nil drawingBlock:^(CGContextRef ctx) {
-                // flipped=NO because we want to keep the image in the CoreGraphics coordinates system
-                // as it will be used with CGContextClipToMask
+            UIImage* mask = [self generateImageWithSize:fullRect.size backgroundColor:nil drawingBlock:^(CGContextRef ctx) {
+                // - flipped=NO because we want to keep the image in the CoreGraphics coordinates system
+                //   as it will be used with CGContextClipToMask
+                // - fullRect because the mask image will be mapped to the insetRect by
+                //   the CGContextClipToMask function itself
                 [self.pdfPage drawInContext:ctx rect:fullRect flipped:NO];
             }];
             CGContextClipToMask(ctx, insetRect, mask.CGImage);
