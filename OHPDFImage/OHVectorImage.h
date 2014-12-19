@@ -212,6 +212,6 @@
  *  @note This method uses the various `OHVectorImage`'s properties
  *        (`tintColor`, `backgroundColor`, `shadow`, `insets`) when rendering.
  */
-- (UIImage*)renderAtSizeFittingSize:(CGSize)size;
+- (UIImage*)renderAtSizeThatFits:(CGSize)size;
 
 @end

@@ -185,7 +185,7 @@
     }];
 }
 
-- (UIImage*)renderAtSizeFittingSize:(CGSize)size
+- (UIImage*)renderAtSizeThatFits:(CGSize)size
 {
     return [self renderAtSize:[self sizeThatFits:size]];
 }
