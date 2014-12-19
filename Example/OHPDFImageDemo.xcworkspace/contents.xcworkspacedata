@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "container:"
+      name = "Podspec &amp; Markdown">
+      <FileRef
+         location = "group:../CHANGELOG.md">
+      </FileRef>
+      <FileRef
+         location = "group:../OHPDFImage.podspec">
+      </FileRef>
+      <FileRef
+         location = "group:../README.md">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:OHPDFImageDemo.xcodeproj">
    </FileRef>

@@ -69,9 +69,11 @@ This way, if you add a drop shadow with `shadowOffset = (CGSize){2,2}` and `blur
 
 When you call `-[OHVectorImage renderAtSize:]` with the expected size, it does not try to keep the aspect ratio, and simply use the given size as-is, stretching the image if necessary ("Scale to Fill" behavior).
 
-If you want to keep the aspect ratio of the original PDF, you can compute the size that fits a given size using `[OHVectorImage sizeThatFits:]` first, and then use this size when calling `renderAtSize:`.  
+If you want to keep the aspect ratio of the original PDF, you can compute the size that fits a given size using `-[OHVectorImage sizeThatFits:]` first, and then use this size when calling `-[OHVectorImage renderAtSize:]`.
 
 > _Note: This is actually what `+[UIImage imageWithPDFNamed:fitInSize:]` does internally._
+
+As wanting to keep the aspect ratio is a quite common case, a convenience method `-[OHVectorImage renderAtSizeThatFits:]` is provided that simply calls the two aforementioned methods one after the other.
 
 The `sizeThatFits:` method takes the vector image's `insets` property into account when computing the fitting size — as these `insets` values will be applied when rendering as well.
 
