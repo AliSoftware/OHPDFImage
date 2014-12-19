@@ -35,6 +35,25 @@
     return [self imageWithPDFNamed:pdfName inBundle:nil fitInSize:size];
 }
 
+
++ (instancetype)imageWithPDFNamed:(NSString *)pdfName
+                      fitInHeight:(CGFloat)height
+{
+    CGSize size = CGSizeMake(CGFLOAT_MAX, height) ;
+    
+    return [self imageWithPDFNamed:pdfName fitInSize:size] ;
+}
+
+
++ (instancetype)imageWithPDFNamed:(NSString *)pdfName
+                      fitInWidth:(CGFloat)width
+{
+    CGSize size = CGSizeMake(width, CGFLOAT_MAX) ;
+    
+    return [self imageWithPDFNamed:pdfName fitInSize:size] ;
+}
+
+
 + (instancetype)imageWithPDFNamed:(NSString*)pdfName
                          inBundle:(NSBundle*)bundleOrNil
                         fitInSize:(CGSize)size

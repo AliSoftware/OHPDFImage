@@ -185,6 +185,33 @@
     }];
 }
 
+
+- (UIImage*)renderAtSizeFittingSize:(CGSize)size
+{
+    return [self renderAtSize:[self sizeThatFits:size]] ;
+}
+
+
+#pragma mark - Rendering at given width/height
+
+
+- (UIImage *)renderForHeight:(CGFloat)height
+{
+    CGSize size = [self sizeThatFits:CGSizeMake(CGFLOAT_MAX, height)] ;
+    
+    return [self renderAtSize:size] ;
+}
+
+
+- (UIImage *)renderForWidth:(CGFloat)width
+{
+    CGSize size = [self sizeThatFits:CGSizeMake(width, CGFLOAT_MAX)] ;
+
+    return [self renderAtSize:size] ;
+}
+
+
+
 #pragma mark - Private Methods
 
 - (UIImage*)generateImageWithSize:(CGSize)size
