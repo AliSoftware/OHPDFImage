@@ -52,9 +52,8 @@
         @"dingbats", @"circle", @"check", @"dotmask"
     }[self.segmentedControl.selectedSegmentIndex];
     
-    UIImage* image = nil;
     // If no option needed, we can simply use:
-    // image = [UIImage imageWithPDFNamed:imageName fitInSize:imageSize];
+    // UIImage* image = [UIImage imageWithPDFNamed:imageName fitInSize:imageSize];
 
     // But here we want to show all the advanced options, so we manipulate the
     // OHVectorImage object to configure it before rendering it as a bitmap image
@@ -77,7 +76,7 @@
         vImage.insets = UIEdgeInsetsMake(0, 0, 5, 5);
     }
     CGSize fitSize = [vImage sizeThatFits:imageSize];
-    image = [vImage renderAtSize:fitSize];
+    UIImage* image = [vImage renderAtSize:fitSize];
     
     self.imageView.image = image;
 }
