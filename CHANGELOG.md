@@ -1,9 +1,14 @@
 # CHANGELOG
 
+## 3.1.1
+
+* Added compatiblity for people still building with Xcode 5 / SDK 7  
+  _(`NS_DESIGNATED_INITIALIZER` was not yet defined back then)_
+
 ## 3.1.0
 
-* **Added `-renderAtSizeThatFits:` convenience method**, as this is a common use case. (@colasjojo - #1)
-* **Added `-scaleForSize:` method** (was private, exposed publicly).
+* Added `-renderAtSizeThatFits:` convenience method, as this is a common use case. (@colasjojo - #1)
+* Added `-scaleForSize:` method (was private, exposed publicly).
 * Fixed issue when using a translucent `backgroundColor` (like `[UIColor clearColor]`) (#2)  
   _(`backgroundColor != nil` generated an opaque image)_
 * Fixed subpixelling issue when rendering. (#2)  

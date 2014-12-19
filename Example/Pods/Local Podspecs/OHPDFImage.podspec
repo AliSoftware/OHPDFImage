@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = 'OHPDFImage'
-  s.version      = '3.1.0'
+  s.version      = '3.1.1'
   s.summary      = "OHPDFImage allows you to use PDFs as vector UIImages"
 
   s.description  = <<-DESC
