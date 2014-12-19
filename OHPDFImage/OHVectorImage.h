@@ -197,4 +197,21 @@
  */
 - (UIImage*)renderAtSize:(CGSize)size;
 
+
+/**
+ *  Render the `OHVectorImage` as a bitmap image with a size fitting the given size
+ *
+ *  @param size The bounding box size to render the image in
+ *
+ *  @return The `UIImage` obtained by rendering the vector image to size fitting
+ *          the given size.
+ *
+ *  @note This method is a convenience method that basically calls `renderAtSize:`
+ *        with the size obtained by calling `sizeThatFits:` on the given size.
+ *
+ *  @note This method uses the various `OHVectorImage`'s properties
+ *        (`tintColor`, `backgroundColor`, `shadow`, `insets`) when rendering.
+ */
+- (UIImage*)renderAtSizeFittingSize:(CGSize)size;
+
 @end

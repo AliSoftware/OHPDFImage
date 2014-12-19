@@ -185,6 +185,11 @@
     }];
 }
 
+- (UIImage*)renderAtSizeFittingSize:(CGSize)size
+{
+    return [self renderAtSize:[self sizeThatFits:size]];
+}
+
 #pragma mark - Private Methods
 
 - (UIImage*)generateImageWithSize:(CGSize)size
