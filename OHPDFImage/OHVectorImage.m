@@ -184,6 +184,11 @@
 }
 
 
+- (UIImage*)renderAtSizeFittingSize:(CGSize)size
+{
+    return [self renderAtSize:[self sizeThatFits:size]] ;
+}
+
 
 #pragma mark - Rendering at given width/height
 
