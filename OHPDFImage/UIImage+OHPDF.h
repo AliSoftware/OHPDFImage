@@ -85,7 +85,7 @@
  *        not load the PDF file again.
  */
 + (instancetype)imageWithPDFNamed:(NSString*)pdfName
-                        fitInHeight:(CGFloat)height;
+                      fitInHeight:(CGFloat)height;
 
 /**
  *  Returns an UIImage build from loading the first page of the PDF file

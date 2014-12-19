@@ -174,4 +174,28 @@
  */
 - (UIImage*)renderAtSize:(CGSize)size;
 
+/**
+ *  Render the `OHVectorImage` as a bitmap image with the given width
+ *
+ *  @param size The size to render the image
+ *
+ *  @return The `UIImage` obtained by rendering the vector image to the given width.
+ *
+ *  @note This method uses the various `OHVectorImage`'s properties
+ *        (`tintColor`, `backgroundColor`, `shadow`, `insets`) when rendering.
+ */
+- (UIImage*)renderForWidth:(CGFloat)width;
+
+/**
+ *  Render the `OHVectorImage` as a bitmap image with the given height
+ *
+ *  @param size The size to render the image
+ *
+ *  @return The `UIImage` obtained by rendering the vector image to the given height.
+ *
+ *  @note This method uses the various `OHVectorImage`'s properties
+ *        (`tintColor`, `backgroundColor`, `shadow`, `insets`) when rendering.
+ */
+- (UIImage*)renderForHeight:(CGFloat)height;
+
 @end
