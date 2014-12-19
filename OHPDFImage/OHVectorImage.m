@@ -192,7 +192,7 @@
                      drawingBlock:( void(^)(CGContextRef ctx) )block
 {
     UIImage* image = nil;
-    UIGraphicsBeginImageContextWithOptions(size, (bkgColor != nil), 0.0);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
     {
         CGContextRef ctx = UIGraphicsGetCurrentContext();
         if (bkgColor != nil)
