@@ -155,7 +155,7 @@
  *  Returns the horizontal and vertical scales to apply if we want
  *  to render the PDF image to the given size.
  *
- *  @param size The size to scale the image to
+ *  @param size The size to scale the image to.  
  *
  *  @return The scale to apply horizontally and vertically to the
  *          `nativeSize` of the original PDF so that it fill the
@@ -163,6 +163,9 @@
  *
  *  @note This takes the vector image's `insets` into account
  *        when computing the scale.
+ *
+ *  @note The method `sizeThatFits` uses the `MIN(width, height)` of the
+ *        `CGSize` returned by this method.
  */
 - (CGSize)scaleForSize:(CGSize)size;
 
@@ -170,7 +173,11 @@
  *  Returns the CGSize that would make the `OHVectorImage` fit in the
  *  given size while keeping its aspect ratio.
  *
- *  @param size The bounding box size in which the image should fit
+ *  @param size The bounding box size in which the image should fit.  
+ *              Use `CGFLOAT_MAX` for either of the dimensions to force
+ *              fitting only on the other dimension (e.g. use
+ *              `CGSizeMake(20, CGFLOAT_MAX)` to get the size that fits
+ *              a width of 20 points).
  *
  *  @return The maximum size of the image so that it fits in the given
  *          size without changing its aspect ratio.
@@ -201,7 +208,11 @@
 /**
  *  Render the `OHVectorImage` as a bitmap image with a size fitting the given size
  *
- *  @param size The bounding box size to render the image in
+ *  @param size The bounding box size to render the image in.  
+ *              Use `CGFLOAT_MAX` for either of the dimensions to force
+ *              fitting only on the other dimension (e.g. use
+ *              `CGSizeMake(20, CGFLOAT_MAX)` to get the size that fits
+ *              a width of 20 points).
  *
  *  @return The `UIImage` obtained by rendering the vector image to size fitting
  *          the given size.

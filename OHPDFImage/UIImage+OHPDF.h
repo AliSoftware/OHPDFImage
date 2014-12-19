@@ -40,7 +40,11 @@
  *  @param size    The bounding box size in which to render the image.
  *                 - If CGSizeZero, it will be rendered using the PDF's MediaBox.
  *                 - Otherwise, the image will be rendered such as it fits in the size
- *                 and keep its aspect ratio
+ *                 and keep its aspect ratio.
+ *                 - Use `CGFLOAT_MAX` for either of the dimensions to force
+ *                   fitting only on the other dimension (e.g. use
+ *                   `CGSizeMake(20, CGFLOAT_MAX)` to get the size that fits
+ *                   a width of 20 points).
  *
  *  @return The UIImage corresponding to the first page of the PDF rendered at the given size.
  *
