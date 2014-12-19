@@ -67,16 +67,19 @@ This way, if you add a drop shadow with `shadowOffset = (CGSize){2,2}` and `blur
 
 #### Keeping aspect ratio
 
-When you call `-[OHVectorImage renderAtSize:]` with the expected size, it does not try to keep the aspect ratio, and simply use the given size as-is, stretching the image if necessary ("Scale to Fill" behavior).
+* When you call `-[OHVectorImage renderAtSize:]` with the expected size, it does not try to keep the aspect ratio, and simply use the given size as-is, stretching the image if necessary ("Scale to Fill" behavior).
 
-If you want to keep the aspect ratio of the original PDF, you can compute the size that fits a given size using `-[OHVectorImage sizeThatFits:]` first, and then use this size when calling `-[OHVectorImage renderAtSize:]`.
+* If you want to keep the aspect ratio of the original PDF, you can compute the size that fits a given size using `-[OHVectorImage sizeThatFits:]` first, and then use this size when calling `-[OHVectorImage renderAtSize:]`.
 
 > _Note: This is actually what `+[UIImage imageWithPDFNamed:fitInSize:]` does internally._
 
-As wanting to keep the aspect ratio is a quite common case, a convenience method `-[OHVectorImage renderAtSizeThatFits:]` is provided that simply calls the two aforementioned methods one after the other.
-
 The `sizeThatFits:` method takes the vector image's `insets` property into account when computing the fitting size — as these `insets` values will be applied when rendering as well.
 
+* As wanting to keep the aspect ratio is a quite common case, a convenience method `-[OHVectorImage renderAtSizeThatFits:]` is provided that simply calls the two aforementioned methods one after the other.
+
+* You may also use the `-[OHVectorImage scaleForSize:]` method that returns a `CGSize` containing the scale factors (both horizontal and vertical) to apply to scale the vector image to the given size. This basically returns the result of dividing the given `size` by the vector image's `nativeSize`, but also taking the `insets` into account.
+
+> Note: `sizeThatFits:` actually uses `MIN(width, height)` of these scale factors to determine the scale factor to "aspect fit" the image in the provided size. If you instead need to scale so image so it does an "aspect fill" scaling — cropping the image if necessary to fill the whole size — you may instead use `MAX(width, height)` to compute the scale and thus the size at which to render the image.
 
 #### Example
 
@@ -91,8 +94,7 @@ vImage.shadow.shadowBlurRadius = 3.f;
 vImage.shadow.shadowColor = [UIColor darkGrayColor];
 vImage.insets = UIEdgeInsetsMake(0,0,5,5);
 // Render as an UIImage, ensuring to keep aspect ratio
-CGSize fitSize = [vImage sizeThatFits:imageViewSize];
-UIImage* image = [vImage renderAtSize:fitSize];
+UIImage* image = [vImage renderAtSizeThatFits:imageViewSize];
 ```
 
 A complete example is also available in the Demo project provided in this repo.

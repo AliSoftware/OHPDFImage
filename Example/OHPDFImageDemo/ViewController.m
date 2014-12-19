@@ -75,9 +75,8 @@
         vImage.shadow.shadowColor = [UIColor darkGrayColor];
         vImage.insets = UIEdgeInsetsMake(0, 0, 5, 5);
     }
-    CGSize fitSize = [vImage sizeThatFits:imageSize];
-    UIImage* image = [vImage renderAtSize:fitSize];
     
+    UIImage* image = [vImage renderAtSizeThatFits:imageSize];
     self.imageView.image = image;
 }
 
