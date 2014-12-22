@@ -147,41 +147,72 @@
 
 - (UIImage*)renderAtSize:(CGSize)size
 {
-    CGSize scale = [self scaleForSize:size];
-    UIEdgeInsets scaledInsets = (UIEdgeInsets){
-        .top    = self.insets.top    * scale.height,
-        .left   = self.insets.left   * scale.width,
-        .bottom = self.insets.bottom * scale.height,
-        .right  = self.insets.right  * scale.width
-    };
     CGRect fullRect  = CGRectIntegral( (CGRect){ .origin = CGPointZero, .size = size } );
-    CGRect insetRect = CGRectIntegral( UIEdgeInsetsInsetRect(fullRect, scaledInsets) );
+    CGSize imageSize = fullRect.size; // Extract it back, because CGRectIntegral may have rounded it
+
+    CGSize scale = [self scaleForSize:size];
+    CGRect insetRect = ({
+        // Convert insets from nativeSize scale to target size scale
+        UIEdgeInsets scaledInsets = (UIEdgeInsets){
+            .top    = self.insets.top    * scale.height,
+            .left   = self.insets.left   * scale.width,
+            .bottom = self.insets.bottom * scale.height,
+            .right  = self.insets.right  * scale.width
+        };
+        CGRectIntegral( UIEdgeInsetsInsetRect(fullRect, scaledInsets) );
+    });
     
-    return [self generateImageWithSize:fullRect.size backgroundColor:self.backgroundColor drawingBlock:^(CGContextRef ctx) {
-        if (self.prepareContextBlock) self.prepareContextBlock(ctx);
-        
-        if (self.shadow)
-        {
-            UIColor* shadowColor = (UIColor*)self.shadow.shadowColor;
-            CGSize offset = self.shadow.shadowOffset;
-            offset.height *= -1; // inverted coordinates between CoreGraphics and UIKit
-            CGContextSetShadowWithColor(ctx, offset, self.shadow.shadowBlurRadius, shadowColor.CGColor);
-        }
-        [self.pdfPage drawInContext:ctx rect:insetRect flipped:YES];
-        
+    UIImage* rasterImage = [self generateImageWithSize:imageSize drawingBlock:^(CGContextRef ctx) {
         if (self.tintColor)
         {
-            UIImage* mask = [self generateImageWithSize:fullRect.size backgroundColor:nil drawingBlock:^(CGContextRef ctx) {
-                // - flipped=NO because we want to keep the image in the CoreGraphics coordinates system
-                //   as it will be used with CGContextClipToMask
-                // - fullRect because the mask image will be mapped to the insetRect by
-                //   the CGContextClipToMask function itself
-                [self.pdfPage drawInContext:ctx rect:fullRect flipped:NO];
+            // Generate a mask using the PDF
+            UIImage* mask = [self generateImageWithSize:imageSize drawingBlock:^(CGContextRef ctx) {
+                // - flipped=YES because we will use its CGImage with CGContextClipToMask
+                //   which is in CoreGraphics coordinate system — which is inverted compared
+                //   to the UIKit coordinate system.
+                [self.pdfPage drawInContext:ctx rect:insetRect flipped:YES];
             }];
-            CGContextClipToMask(ctx, insetRect, mask.CGImage);
+            // Use the mask to generate a tinted image
+            CGContextClipToMask(ctx, fullRect, mask.CGImage);
             CGContextSetFillColorWithColor(ctx, self.tintColor.CGColor);
             CGContextFillRect(ctx, fullRect);
         }
+        else
+        {
+            // Directly render the image in a bitmap context
+            [self.pdfPage drawInContext:ctx rect:insetRect flipped:NO];
+        }
+    }];
+    
+    // Render the final image using prepareContextBlock, backgroundColor and shadow
+    return [self generateImageWithSize:imageSize drawingBlock:^(CGContextRef ctx) {
+        // If the user provided a block to execute before rendering, apply it now
+        if (self.prepareContextBlock) self.prepareContextBlock(ctx);
+        
+        // If we have a background color, fill the image with it
+        if (self.backgroundColor != nil)
+        {
+            CGContextSetFillColorWithColor(ctx, self.backgroundColor.CGColor);
+            // Add 1 to width and height to fill everything, even the bottom and right borders
+            CGRect rect = CGRectMake(0.0f, 0.0f, size.width+1, size.height+1);
+            CGContextFillRect(ctx, rect);
+        }
+        
+        // If we have a shadow, apply it now
+        if (self.shadow)
+        {
+            UIColor* shadowColor = (UIColor*)self.shadow.shadowColor;
+            // Convert offset and radius from nativeSize scale to target size scale
+            CGSize offset = (CGSize){
+                .width  = self.shadow.shadowOffset.width  * scale.width,
+                .height = self.shadow.shadowOffset.height * scale.height
+            };
+            CGFloat radius = self.shadow.shadowBlurRadius * (scale.width+scale.height)/2;
+            CGContextSetShadowWithColor(ctx, offset, radius, shadowColor.CGColor);
+        }
+        
+        // Finally, draw the rastered image
+        CGContextDrawImage(ctx, fullRect, rasterImage.CGImage);
     }];
 }
 
@@ -193,24 +224,13 @@
 #pragma mark - Private Methods
 
 - (UIImage*)generateImageWithSize:(CGSize)size
-                  backgroundColor:(UIColor*)bkgColor
-                     drawingBlock:( void(^)(CGContextRef ctx) )block
+                     drawingBlock:( void(^)(CGContextRef ctx) )drawingBlock
 {
-    UIImage* image = nil;
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
-    {
-        CGContextRef ctx = UIGraphicsGetCurrentContext();
-        if (bkgColor != nil)
-        {
-            CGContextSetFillColorWithColor(ctx, bkgColor.CGColor);
-            // Add 1 to width and height to fill everything, even the bottom and right borders
-            CGRect rect = CGRectMake(0.0f, 0.0f, size.width+1, size.height+1);
-            CGContextFillRect(ctx, rect);
-        }
-        block(ctx);
-        image = UIGraphicsGetImageFromCurrentImageContext();
-    }
+    drawingBlock( UIGraphicsGetCurrentContext() );
+    UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
     return image;
 };
 
