@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.1.2
+
+* Fixed rendering algorithm to avoid seeing the original image borders when using tintColor + shadow (#3)
+
 ## 3.1.1
 
 * Added compatiblity for people still building with Xcode 5 / SDK 7  
