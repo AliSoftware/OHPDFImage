@@ -79,7 +79,7 @@ The `sizeThatFits:` method takes the vector image's `insets` property into accou
 
 * You may also use the `-[OHVectorImage scaleForSize:]` method that returns a `CGSize` containing the scale factors (both horizontal and vertical) to apply to scale the vector image to the given size. This basically returns the result of dividing the given `size` by the vector image's `nativeSize`, but also taking the `insets` into account.
 
-> Note: `sizeThatFits:` actually uses `MIN(width, height)` of these scale factors to determine the scale factor to "aspect fit" the image in the provided size. If you instead need to scale so image so it does an "aspect fill" scaling — cropping the image if necessary to fill the whole size — you may instead use `MAX(width, height)` to compute the scale and thus the size at which to render the image.
+> Note: `sizeThatFits:` actually uses `MIN(width, height)` of these scale factors to determine the scale factor to "aspect fit" the image in the provided size. If you instead need to scale the image so it does an "aspect fill" scaling — cropping the image if necessary to fill the whole size — you may instead use `MAX(width, height)` to compute the scale and thus the size at which to render the image.
 
 #### Example
 
