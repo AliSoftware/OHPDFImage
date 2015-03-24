@@ -147,6 +147,13 @@
 
 - (UIImage*)renderAtSize:(CGSize)size
 {
+    if (size.width <= 0
+        ||
+        size.height <= 0)
+    {
+        return nil ;
+    }
+
     CGSize scale = [self scaleForSize:size];
     UIEdgeInsets scaledInsets = (UIEdgeInsets){
         .top    = self.insets.top    * scale.height,
