@@ -147,6 +147,11 @@
 
 - (UIImage*)renderAtSize:(CGSize)size
 {
+    if ((size.width <= 0) || (size.height <= 0))
+    {
+        return nil;
+    }
+
     CGRect fullRect  = CGRectIntegral( (CGRect){ .origin = CGPointZero, .size = size } );
     CGSize imageSize = fullRect.size; // Extract it back, because CGRectIntegral may have rounded it
 

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.1.3
+
+* Fixed issue when trying to render image at empty size (zero-width and/or zero-height size).  
+  Now returns a `nil` image in such cases. [@colasjojo #7](https://github.com/AliSoftware/OHPDFImage/pull/7)
+
 ## 3.1.2
 
 * Fixed rendering algorithm to avoid seeing the original image borders when using tintColor + shadow (#3)
