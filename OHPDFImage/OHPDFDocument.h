@@ -61,6 +61,15 @@
  */
 + (instancetype)documentWithRef:(CGPDFDocumentRef)docRef;
 
+/**
+ *  Create an OHPDFDocument from an NSData created from a PDF file.
+ *
+ *  @param data The NSData reated from the PDF file to load
+ *
+ *  @return The OHPDFDocument representing the PDF document.
+ */
++ (instancetype)documentWithData:(NSData*)data;
+
 #pragma mark - Getting a page
 /**
  *  Return a given page in the PDF. Page indexes starts at 1.

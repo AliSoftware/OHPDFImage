@@ -35,6 +35,21 @@
 
 #pragma mark - Constructors
 
++ (instancetype)documentWithData:(NSData *)data
+{
+    CGDataProviderRef dataRef = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+    CGPDFDocumentRef docRef = CGPDFDocumentCreateWithProvider(dataRef);
+    CGDataProviderRelease(dataRef);
+
+    OHPDFDocument* doc = nil;
+    if (docRef)
+    {
+        doc = [self documentWithRef:docRef];
+        CGPDFDocumentRelease(docRef);
+    }
+    return doc;
+}
+
 + (instancetype)documentWithURL:(NSURL*)url
 {
     CGPDFDocumentRef docRef = CGPDFDocumentCreateWithURL((__bridge CFURLRef)url);
