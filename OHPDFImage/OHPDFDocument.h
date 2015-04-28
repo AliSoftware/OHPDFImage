@@ -64,7 +64,7 @@
 /**
  *  Create an OHPDFDocument from an NSData created from a PDF file.
  *
- *  @param data The NSData reated from the PDF file to load
+ *  @param data The NSData created from the PDF file to load
  *
  *  @return The OHPDFDocument representing the PDF document.
  */

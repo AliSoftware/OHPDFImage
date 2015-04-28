@@ -37,18 +37,20 @@
 
 + (instancetype)documentWithData:(NSData *)data
 {
+    if (!data) return nil;
     CGDataProviderRef dataRef = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
+    
+    if (!dataRef) return nil;
     CGPDFDocumentRef docRef = CGPDFDocumentCreateWithProvider(dataRef);
     CGDataProviderRelease(dataRef);
-
-    OHPDFDocument* doc = nil;
-    if (docRef)
-    {
-        doc = [self documentWithRef:docRef];
-        CGPDFDocumentRelease(docRef);
-    }
+    
+    if (!docRef) return nil;
+    OHPDFDocument* doc = [self documentWithRef:docRef];
+    CGPDFDocumentRelease(docRef);
+    
     return doc;
 }
+
 
 + (instancetype)documentWithURL:(NSURL*)url
 {
