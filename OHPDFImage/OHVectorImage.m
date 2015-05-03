@@ -156,16 +156,12 @@
     CGSize imageSize = fullRect.size; // Extract it back, because CGRectIntegral may have rounded it
 
     CGSize scale = [self scaleForSize:size];
-    CGRect insetRect = ({
-        // Convert insets from nativeSize scale to target size scale
-        UIEdgeInsets scaledInsets = (UIEdgeInsets){
-            .top    = self.insets.top    * scale.height,
-            .left   = self.insets.left   * scale.width,
-            .bottom = self.insets.bottom * scale.height,
-            .right  = self.insets.right  * scale.width
-        };
-        CGRectIntegral( UIEdgeInsetsInsetRect(fullRect, scaledInsets) );
-    });
+    UIEdgeInsets scaledInsets = (UIEdgeInsets){
+        .top    = self.insets.top    * scale.height,
+        .left   = self.insets.left   * scale.width,
+        .bottom = self.insets.bottom * scale.height,
+        .right  = self.insets.right  * scale.width
+    };
     
     UIImage* rasterImage = [self generateImageWithSize:imageSize drawingBlock:^(CGContextRef ctx) {
         if (self.tintColor)
@@ -175,6 +171,7 @@
                 // - flipped=YES because we will use its CGImage with CGContextClipToMask
                 //   which is in CoreGraphics coordinate system — which is inverted compared
                 //   to the UIKit coordinate system.
+                CGRect insetRect = CGRectIntegral( UIEdgeInsetsInsetRect(fullRect, scaledInsets) );
                 [self.pdfPage drawInContext:ctx rect:insetRect flipped:YES];
             }];
             // Use the mask to generate a tinted image
@@ -184,7 +181,12 @@
         }
         else
         {
-            // Directly render the image in a bitmap context
+            // Directly render the image in a bitmap context.
+            // Note: we need to flip the insetRect to match the CoreGraphics orientation
+            CGRect insetRect = CGRectIntegral( UIEdgeInsetsInsetRect(fullRect, (UIEdgeInsets){
+                .top  = scaledInsets.bottom, .bottom = scaledInsets.top,
+                .left = scaledInsets.left,    .right = scaledInsets.right
+            }) );
             [self.pdfPage drawInContext:ctx rect:insetRect flipped:NO];
         }
     }];
