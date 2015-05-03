@@ -1,13 +1,21 @@
 # CHANGELOG
 
+## 3.2.1
+
+* Fixed issue with `OHVectorImage.insets` not interpreted properly when no `tintColor` was set (and thus no intermediate drawing was done in a flipped context)
+ 
+## 3.2.0
+
+* Added `OHPDFDocument` constructor `documentWithData:` ([@colasjojo](https://github.com/colasjojo), [#8](https://github.com/AliSoftware/OHPDFImage/pull/8))
+
 ## 3.1.3
 
 * Fixed issue when trying to render image at empty size (zero-width and/or zero-height size).  
-  Now returns a `nil` image in such cases. [@colasjojo #7](https://github.com/AliSoftware/OHPDFImage/pull/7)
+  Now returns a `nil` image in such cases. ([@colasjojo](https://github.com/colasjojo), [#7](https://github.com/AliSoftware/OHPDFImage/pull/7))
 
 ## 3.1.2
 
-* Fixed rendering algorithm to avoid seeing the original image borders when using tintColor + shadow (#3)
+* Fixed rendering algorithm to avoid seeing the original image borders when using tintColor + shadow ([#3](https://github.com/AliSoftware/OHPDFImage/issues/3))
 
 ## 3.1.1
 
@@ -16,9 +24,9 @@
 
 ## 3.1.0
 
-* Added `-renderAtSizeThatFits:` convenience method, as this is a common use case. (@colasjojo - #1)
+* Added `-renderAtSizeThatFits:` convenience method, as this is a common use case. ([@colasjojo](https://github.com/colasjojo), [#1](https://github.com/AliSoftware/OHPDFImage/pull/1))
 * Added `-scaleForSize:` method (was private, exposed publicly).
-* Fixed issue when using a translucent `backgroundColor` (like `[UIColor clearColor]`) (#2)  
+* Fixed issue when using a translucent `backgroundColor` (like `[UIColor clearColor]`) ([#2](https://github.com/AliSoftware/OHPDFImage/issues/2))  
   _(`backgroundColor != nil` generated an opaque image)_
 * Fixed subpixelling issue when rendering. (#2)  
   _(`CGSize` with non-integral dimensions did generate blurry edges especially visible when using a `tintColor`)_
