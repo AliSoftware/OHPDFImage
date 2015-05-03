@@ -7,233 +7,233 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13469C944E23DB7098930ABE /* OHPDFPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21987687E5AC235F1EB659C9 /* OHPDFPage.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		2D6AA6EB61D5D2CC39CD301F /* OHVectorImage.h in Headers */ = {isa = PBXBuildFile; fileRef = AD33FB10AC50C8BCB127FBC6 /* OHVectorImage.h */; };
-		48059973BBBCFB8A93852ED0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43B9F897145A030FF8BAA4C /* Foundation.framework */; };
-		4FB3EAF0F6B0D46848EE9628 /* Pods-OHPDFImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AB5ADE52C7EF5EC49F39DD /* Pods-OHPDFImage-dummy.m */; };
-		5D0D9E8A3E38D9FF3ACA743C /* OHPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 396EBF3A680C01F659B65A2E /* OHPDFDocument.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		6CBE5DDF2B7BA1B3FA8CD934 /* UIImage+OHPDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B74675C854F5279B12DE71 /* UIImage+OHPDF.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		78C247A13D57A782DC482CB8 /* OHVectorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AC4A93F71B484D80150401 /* OHVectorImage.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		8FA91C92F5461BBAF9EB7D34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1513DABBB2FECB8A00AA6CB4 /* UIKit.framework */; };
-		97E3D8CACCBFBE11D2231AD2 /* OHPDFPage.h in Headers */ = {isa = PBXBuildFile; fileRef = C2EEEED0CC65ADBCF8BBE847 /* OHPDFPage.h */; };
-		BD7D6E5DDC4354449E40E402 /* OHPDFImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC80BCB02F00ED95452BEC6 /* OHPDFImage.h */; };
-		D33608954115A8B17F136790 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 347ACE9433D42E211C1A159F /* Pods-dummy.m */; };
-		DC062C26AE5E7BC4FE4FAAE4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3783475302883A0EA54F4C7F /* QuartzCore.framework */; };
-		E9E17DC6ECD71C42ABA38181 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D43B9F897145A030FF8BAA4C /* Foundation.framework */; };
-		FAEC46071F15BB9FB8207212 /* OHPDFDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 181E24329698F495A4207380 /* OHPDFDocument.h */; };
-		FD06F6F74E590CC69150F4E6 /* UIImage+OHPDF.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD1C30A56E26EB9D45E0280 /* UIImage+OHPDF.h */; };
+		0984BD4C3C6D49FFE761ABF9 /* OHPDFPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 161BEC1A976055787E40EA21 /* OHPDFPage.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		21E7D4C983C0AB1CA1ED0BAB /* OHPDFPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B5A63AF172FC602069B6596 /* OHPDFPage.h */; };
+		58FA1CD0C43E7E4BE39B62FB /* OHVectorImage.h in Headers */ = {isa = PBXBuildFile; fileRef = F2DF24BD3969B7C58D372237 /* OHVectorImage.h */; };
+		6D0C8A9C832435B5B572E745 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429EA8A56313ECBB47052C68 /* UIKit.framework */; };
+		6DE2E03FC89D67A4FA94B57C /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2823C21F4722FA161E6723B6 /* Pods-dummy.m */; };
+		6F8DBD9CC31C74CD00BF7055 /* OHVectorImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6FDB1E4A765F18DBF5C580 /* OHVectorImage.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		75D90E9CBC81266034651C2F /* UIImage+OHPDF.h in Headers */ = {isa = PBXBuildFile; fileRef = 346EEAB40E740B5E6067C2BC /* UIImage+OHPDF.h */; };
+		75E3C16B734325226BDE8982 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85087C4CC4494CCF857BDA9 /* Foundation.framework */; };
+		7ACF3278DBE18651C44CCD84 /* OHPDFDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 5066BC3DE5822E510D30DC51 /* OHPDFDocument.h */; };
+		ADC338181F48387DF94BECA4 /* OHPDFImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 91123F24BD4E65EE414179EB /* OHPDFImage.h */; };
+		B5F148C0F77137BB61000541 /* Pods-OHPDFImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A9501E2A51FF2E35A42008 /* Pods-OHPDFImage-dummy.m */; };
+		BFE03F266B9EA081F3F11DF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C85087C4CC4494CCF857BDA9 /* Foundation.framework */; };
+		C2ADD33BE9A55998CC4CA12E /* OHPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1534A91B29171D8A77EB1D41 /* OHPDFDocument.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CA305DB0E8E1220D826AB340 /* UIImage+OHPDF.m in Sources */ = {isa = PBXBuildFile; fileRef = C791305724DC92E0B14D4797 /* UIImage+OHPDF.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F1FE16EC8BDF8DA80010B2ED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1818984D554BFA9EFF478C0 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DCB547F1F73D2F7596FF695F /* PBXContainerItemProxy */ = {
+		F4CD1937F96346413F74E60F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 59AB55D60620EBE96431273A /* Project object */;
+			containerPortal = 79D83A10A0D571CA7849CAFA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EF69C0ED68D88EDF1773118E;
+			remoteGlobalIDString = FAD0EFB9E36C0FB4D501FCEF;
 			remoteInfo = "Pods-OHPDFImage";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1513DABBB2FECB8A00AA6CB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		181E24329698F495A4207380 /* OHPDFDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OHPDFDocument.h; sourceTree = "<group>"; };
-		1FD1C30A56E26EB9D45E0280 /* UIImage+OHPDF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+OHPDF.h"; sourceTree = "<group>"; };
-		21987687E5AC235F1EB659C9 /* OHPDFPage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OHPDFPage.m; sourceTree = "<group>"; };
-		22AC4A93F71B484D80150401 /* OHVectorImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OHVectorImage.m; sourceTree = "<group>"; };
-		249142C46E4D1568285A5ED2 /* Pods-OHPDFImage-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OHPDFImage-Private.xcconfig"; sourceTree = "<group>"; };
-		297350C186E30250A504982E /* libPods-OHPDFImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OHPDFImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		347ACE9433D42E211C1A159F /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		3783475302883A0EA54F4C7F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		389DDDD522FCAA4C307F6DA8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		396EBF3A680C01F659B65A2E /* OHPDFDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OHPDFDocument.m; sourceTree = "<group>"; };
-		3AC80BCB02F00ED95452BEC6 /* OHPDFImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OHPDFImage.h; sourceTree = "<group>"; };
-		4876483266687EEE14F90333 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		54AB5ADE52C7EF5EC49F39DD /* Pods-OHPDFImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OHPDFImage-dummy.m"; sourceTree = "<group>"; };
-		6D65E5E825A3F1C33605FFA1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		80B74675C854F5279B12DE71 /* UIImage+OHPDF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+OHPDF.m"; sourceTree = "<group>"; };
-		877D0F8E5ABAB584725211BF /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		880CA2C923DD70259E344223 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		903F9D5237C704B54EE94C6D /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
-		AD33FB10AC50C8BCB127FBC6 /* OHVectorImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OHVectorImage.h; sourceTree = "<group>"; };
-		B7B2D78ED2ED7C7BAB170176 /* Pods-OHPDFImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OHPDFImage.xcconfig"; sourceTree = "<group>"; };
-		C2EEEED0CC65ADBCF8BBE847 /* OHPDFPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OHPDFPage.h; sourceTree = "<group>"; };
-		D2521190B45D787509439407 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		D43B9F897145A030FF8BAA4C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F9F28D5468C1389474A8F6DC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		FEA35D5E8AF040C8E5357863 /* Pods-OHPDFImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OHPDFImage-prefix.pch"; sourceTree = "<group>"; };
+		00A78E57BFD24BD5BF7CE34D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		1534A91B29171D8A77EB1D41 /* OHPDFDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OHPDFDocument.m; sourceTree = "<group>"; };
+		161B97607E20BF94AC7E8E3E /* libPods-OHPDFImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OHPDFImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		161BEC1A976055787E40EA21 /* OHPDFPage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OHPDFPage.m; sourceTree = "<group>"; };
+		2823C21F4722FA161E6723B6 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		2F925EF8760DEF4E649B73E3 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		346EEAB40E740B5E6067C2BC /* UIImage+OHPDF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+OHPDF.h"; sourceTree = "<group>"; };
+		3CC43275731EF6385F605F45 /* Pods-OHPDFImage-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OHPDFImage-Private.xcconfig"; sourceTree = "<group>"; };
+		3EE578B03A5327456CD43039 /* Pods-OHPDFImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OHPDFImage-prefix.pch"; sourceTree = "<group>"; };
+		429EA8A56313ECBB47052C68 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		5066BC3DE5822E510D30DC51 /* OHPDFDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OHPDFDocument.h; sourceTree = "<group>"; };
+		6B5A63AF172FC602069B6596 /* OHPDFPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OHPDFPage.h; sourceTree = "<group>"; };
+		7253700776B516C0082C9A6E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7CB5FB104A2FF6F8635745BC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		81FD636FCE04BAAF68094EBA /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		91123F24BD4E65EE414179EB /* OHPDFImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OHPDFImage.h; sourceTree = "<group>"; };
+		971BAB415C40B9507265115F /* Pods-OHPDFImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OHPDFImage.xcconfig"; sourceTree = "<group>"; };
+		9B6FDB1E4A765F18DBF5C580 /* OHVectorImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = OHVectorImage.m; sourceTree = "<group>"; };
+		B39A8EFE68E8CA840893E96C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60FE419D4A52A6CEDA3A912 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		C755EF0994FBA832AF515F0E /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		C791305724DC92E0B14D4797 /* UIImage+OHPDF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+OHPDF.m"; sourceTree = "<group>"; };
+		C85087C4CC4494CCF857BDA9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D2A9501E2A51FF2E35A42008 /* Pods-OHPDFImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OHPDFImage-dummy.m"; sourceTree = "<group>"; };
+		F1818984D554BFA9EFF478C0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		F2DF24BD3969B7C58D372237 /* OHVectorImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = OHVectorImage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6C59C017B8946B6D1FFFED0C /* Frameworks */ = {
+		4FF67E35FE774DE2C6F9D759 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9E17DC6ECD71C42ABA38181 /* Foundation.framework in Frameworks */,
+				75E3C16B734325226BDE8982 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE649FEC09024A5A53EB706E /* Frameworks */ = {
+		AF33785DD712A9291ACF036A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48059973BBBCFB8A93852ED0 /* Foundation.framework in Frameworks */,
-				DC062C26AE5E7BC4FE4FAAE4 /* QuartzCore.framework in Frameworks */,
-				8FA91C92F5461BBAF9EB7D34 /* UIKit.framework in Frameworks */,
+				BFE03F266B9EA081F3F11DF1 /* Foundation.framework in Frameworks */,
+				F1FE16EC8BDF8DA80010B2ED /* QuartzCore.framework in Frameworks */,
+				6D0C8A9C832435B5B572E745 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0078A5EC65E990B712660A8D /* Products */ = {
+		3A565825B0D774C6091DB17F /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6D65E5E825A3F1C33605FFA1 /* libPods.a */,
-				297350C186E30250A504982E /* libPods-OHPDFImage.a */,
+				456FE10DDC2E06EED32BD13F /* OHPDFImage */,
 			);
-			name = Products;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		1CD68DC88E68EFAC40A7CF6C = {
+		456FE10DDC2E06EED32BD13F /* OHPDFImage */ = {
 			isa = PBXGroup;
 			children = (
-				877D0F8E5ABAB584725211BF /* Podfile */,
-				6AAD14100058A2C3B849DB32 /* Development Pods */,
-				D52DB0F4BC01FCDCC66DB9DD /* Frameworks */,
-				0078A5EC65E990B712660A8D /* Products */,
-				39DC25B91FA64350DF4E657B /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		39DC25B91FA64350DF4E657B /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				EDF91DE1C8AC97D845701500 /* Pods */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		4ADFBC7C876CBB5A4C8067F8 /* OHPDFImage */ = {
-			isa = PBXGroup;
-			children = (
-				771E59A965996CB4EDA580ED /* OHPDFImage */,
-				9F1DAB2676202322D32CDF4D /* Support Files */,
+				9F7A9CE684E66BD9E412C73D /* OHPDFImage */,
+				76C7EC4436782FFAA54E9786 /* Support Files */,
 			);
 			name = OHPDFImage;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		6AAD14100058A2C3B849DB32 /* Development Pods */ = {
+		5AFD5CC0E554D24967AB341F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4ADFBC7C876CBB5A4C8067F8 /* OHPDFImage */,
+				E13F88FF16D9D60D67F210D7 /* iOS */,
 			);
-			name = "Development Pods";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		771E59A965996CB4EDA580ED /* OHPDFImage */ = {
+		76C7EC4436782FFAA54E9786 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				181E24329698F495A4207380 /* OHPDFDocument.h */,
-				396EBF3A680C01F659B65A2E /* OHPDFDocument.m */,
-				3AC80BCB02F00ED95452BEC6 /* OHPDFImage.h */,
-				C2EEEED0CC65ADBCF8BBE847 /* OHPDFPage.h */,
-				21987687E5AC235F1EB659C9 /* OHPDFPage.m */,
-				AD33FB10AC50C8BCB127FBC6 /* OHVectorImage.h */,
-				22AC4A93F71B484D80150401 /* OHVectorImage.m */,
-				1FD1C30A56E26EB9D45E0280 /* UIImage+OHPDF.h */,
-				80B74675C854F5279B12DE71 /* UIImage+OHPDF.m */,
-			);
-			path = OHPDFImage;
-			sourceTree = "<group>";
-		};
-		97F39FB218A8B51F4409FE2A /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				D43B9F897145A030FF8BAA4C /* Foundation.framework */,
-				3783475302883A0EA54F4C7F /* QuartzCore.framework */,
-				1513DABBB2FECB8A00AA6CB4 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		9F1DAB2676202322D32CDF4D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B7B2D78ED2ED7C7BAB170176 /* Pods-OHPDFImage.xcconfig */,
-				249142C46E4D1568285A5ED2 /* Pods-OHPDFImage-Private.xcconfig */,
-				54AB5ADE52C7EF5EC49F39DD /* Pods-OHPDFImage-dummy.m */,
-				FEA35D5E8AF040C8E5357863 /* Pods-OHPDFImage-prefix.pch */,
+				971BAB415C40B9507265115F /* Pods-OHPDFImage.xcconfig */,
+				3CC43275731EF6385F605F45 /* Pods-OHPDFImage-Private.xcconfig */,
+				D2A9501E2A51FF2E35A42008 /* Pods-OHPDFImage-dummy.m */,
+				3EE578B03A5327456CD43039 /* Pods-OHPDFImage-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/Pods-OHPDFImage";
 			sourceTree = "<group>";
 		};
-		D52DB0F4BC01FCDCC66DB9DD /* Frameworks */ = {
+		7CE18B10CBD1048BDD5311EF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				97F39FB218A8B51F4409FE2A /* iOS */,
+				B39A8EFE68E8CA840893E96C /* libPods.a */,
+				161B97607E20BF94AC7E8E3E /* libPods-OHPDFImage.a */,
 			);
-			name = Frameworks;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		EDF91DE1C8AC97D845701500 /* Pods */ = {
+		8BD9EBD2A3D92B11A6A35CF8 = {
 			isa = PBXGroup;
 			children = (
-				4876483266687EEE14F90333 /* Pods-acknowledgements.markdown */,
-				D2521190B45D787509439407 /* Pods-acknowledgements.plist */,
-				347ACE9433D42E211C1A159F /* Pods-dummy.m */,
-				903F9D5237C704B54EE94C6D /* Pods-environment.h */,
-				880CA2C923DD70259E344223 /* Pods-resources.sh */,
-				F9F28D5468C1389474A8F6DC /* Pods.debug.xcconfig */,
-				389DDDD522FCAA4C307F6DA8 /* Pods.release.xcconfig */,
+				81FD636FCE04BAAF68094EBA /* Podfile */,
+				3A565825B0D774C6091DB17F /* Development Pods */,
+				5AFD5CC0E554D24967AB341F /* Frameworks */,
+				7CE18B10CBD1048BDD5311EF /* Products */,
+				B876445B4B42A25595BA3656 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9F7A9CE684E66BD9E412C73D /* OHPDFImage */ = {
+			isa = PBXGroup;
+			children = (
+				5066BC3DE5822E510D30DC51 /* OHPDFDocument.h */,
+				1534A91B29171D8A77EB1D41 /* OHPDFDocument.m */,
+				91123F24BD4E65EE414179EB /* OHPDFImage.h */,
+				6B5A63AF172FC602069B6596 /* OHPDFPage.h */,
+				161BEC1A976055787E40EA21 /* OHPDFPage.m */,
+				F2DF24BD3969B7C58D372237 /* OHVectorImage.h */,
+				9B6FDB1E4A765F18DBF5C580 /* OHVectorImage.m */,
+				346EEAB40E740B5E6067C2BC /* UIImage+OHPDF.h */,
+				C791305724DC92E0B14D4797 /* UIImage+OHPDF.m */,
+			);
+			path = OHPDFImage;
+			sourceTree = "<group>";
+		};
+		B876445B4B42A25595BA3656 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C913A3847752BD8CC052FDFB /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C913A3847752BD8CC052FDFB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7253700776B516C0082C9A6E /* Pods-acknowledgements.markdown */,
+				B60FE419D4A52A6CEDA3A912 /* Pods-acknowledgements.plist */,
+				2823C21F4722FA161E6723B6 /* Pods-dummy.m */,
+				2F925EF8760DEF4E649B73E3 /* Pods-environment.h */,
+				C755EF0994FBA832AF515F0E /* Pods-resources.sh */,
+				00A78E57BFD24BD5BF7CE34D /* Pods.debug.xcconfig */,
+				7CB5FB104A2FF6F8635745BC /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
+		E13F88FF16D9D60D67F210D7 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C85087C4CC4494CCF857BDA9 /* Foundation.framework */,
+				F1818984D554BFA9EFF478C0 /* QuartzCore.framework */,
+				429EA8A56313ECBB47052C68 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		E6243DB23087A3E0D489E024 /* Headers */ = {
+		91B9FC6DD31FD6C414A5E9AF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAEC46071F15BB9FB8207212 /* OHPDFDocument.h in Headers */,
-				BD7D6E5DDC4354449E40E402 /* OHPDFImage.h in Headers */,
-				97E3D8CACCBFBE11D2231AD2 /* OHPDFPage.h in Headers */,
-				2D6AA6EB61D5D2CC39CD301F /* OHVectorImage.h in Headers */,
-				FD06F6F74E590CC69150F4E6 /* UIImage+OHPDF.h in Headers */,
+				7ACF3278DBE18651C44CCD84 /* OHPDFDocument.h in Headers */,
+				ADC338181F48387DF94BECA4 /* OHPDFImage.h in Headers */,
+				21E7D4C983C0AB1CA1ED0BAB /* OHPDFPage.h in Headers */,
+				58FA1CD0C43E7E4BE39B62FB /* OHVectorImage.h in Headers */,
+				75D90E9CBC81266034651C2F /* UIImage+OHPDF.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9B73DC6AE1292F0103BBF6F7 /* Pods */ = {
+		56D94702BE89E59A2284721D /* Pods */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A571FEA9620EBB9CEFECC7A /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildConfigurationList = 4FF78549A01B587E771AEE10 /* Build configuration list for PBXNativeTarget "Pods" */;
 			buildPhases = (
-				4EC353509FF3B13FC39AE987 /* Sources */,
-				6C59C017B8946B6D1FFFED0C /* Frameworks */,
+				FD718089982DDD99FA2C064F /* Sources */,
+				4FF67E35FE774DE2C6F9D759 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B76A071920FC7B6B42E45EBA /* PBXTargetDependency */,
+				2F97F0D3F5F04D1F43A1A6A5 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
-			productReference = 6D65E5E825A3F1C33605FFA1 /* libPods.a */;
+			productReference = B39A8EFE68E8CA840893E96C /* libPods.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		EF69C0ED68D88EDF1773118E /* Pods-OHPDFImage */ = {
+		FAD0EFB9E36C0FB4D501FCEF /* Pods-OHPDFImage */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A51E2017AED0510B8FD5844D /* Build configuration list for PBXNativeTarget "Pods-OHPDFImage" */;
+			buildConfigurationList = B2277BAFE3299277C5F7DA67 /* Build configuration list for PBXNativeTarget "Pods-OHPDFImage" */;
 			buildPhases = (
-				8DE31F3D201C11BA76CEEBF7 /* Sources */,
-				CE649FEC09024A5A53EB706E /* Frameworks */,
-				E6243DB23087A3E0D489E024 /* Headers */,
+				D48E110E696B122E6BF707F8 /* Sources */,
+				AF33785DD712A9291ACF036A /* Frameworks */,
+				91B9FC6DD31FD6C414A5E9AF /* Headers */,
 			);
 			buildRules = (
 			);
@@ -241,151 +241,69 @@
 			);
 			name = "Pods-OHPDFImage";
 			productName = "Pods-OHPDFImage";
-			productReference = 297350C186E30250A504982E /* libPods-OHPDFImage.a */;
+			productReference = 161B97607E20BF94AC7E8E3E /* libPods-OHPDFImage.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		59AB55D60620EBE96431273A /* Project object */ = {
+		79D83A10A0D571CA7849CAFA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = F096A6677C6EFF14133B8E51 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 3EBFC7E9158BCBC0835F056A /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 1CD68DC88E68EFAC40A7CF6C;
-			productRefGroup = 0078A5EC65E990B712660A8D /* Products */;
+			mainGroup = 8BD9EBD2A3D92B11A6A35CF8;
+			productRefGroup = 7CE18B10CBD1048BDD5311EF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9B73DC6AE1292F0103BBF6F7 /* Pods */,
-				EF69C0ED68D88EDF1773118E /* Pods-OHPDFImage */,
+				56D94702BE89E59A2284721D /* Pods */,
+				FAD0EFB9E36C0FB4D501FCEF /* Pods-OHPDFImage */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4EC353509FF3B13FC39AE987 /* Sources */ = {
+		D48E110E696B122E6BF707F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D33608954115A8B17F136790 /* Pods-dummy.m in Sources */,
+				C2ADD33BE9A55998CC4CA12E /* OHPDFDocument.m in Sources */,
+				0984BD4C3C6D49FFE761ABF9 /* OHPDFPage.m in Sources */,
+				6F8DBD9CC31C74CD00BF7055 /* OHVectorImage.m in Sources */,
+				B5F148C0F77137BB61000541 /* Pods-OHPDFImage-dummy.m in Sources */,
+				CA305DB0E8E1220D826AB340 /* UIImage+OHPDF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8DE31F3D201C11BA76CEEBF7 /* Sources */ = {
+		FD718089982DDD99FA2C064F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D0D9E8A3E38D9FF3ACA743C /* OHPDFDocument.m in Sources */,
-				13469C944E23DB7098930ABE /* OHPDFPage.m in Sources */,
-				78C247A13D57A782DC482CB8 /* OHVectorImage.m in Sources */,
-				4FB3EAF0F6B0D46848EE9628 /* Pods-OHPDFImage-dummy.m in Sources */,
-				6CBE5DDF2B7BA1B3FA8CD934 /* UIImage+OHPDF.m in Sources */,
+				6DE2E03FC89D67A4FA94B57C /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B76A071920FC7B6B42E45EBA /* PBXTargetDependency */ = {
+		2F97F0D3F5F04D1F43A1A6A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-OHPDFImage";
-			target = EF69C0ED68D88EDF1773118E /* Pods-OHPDFImage */;
-			targetProxy = DCB547F1F73D2F7596FF695F /* PBXContainerItemProxy */;
+			target = FAD0EFB9E36C0FB4D501FCEF /* Pods-OHPDFImage */;
+			targetProxy = F4CD1937F96346413F74E60F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2279AA7183299587690358DF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 249142C46E4D1568285A5ED2 /* Pods-OHPDFImage-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-OHPDFImage/Pods-OHPDFImage-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		39DF904932C454BF884E79BE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9F28D5468C1389474A8F6DC /* Pods.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		50207EEF3F4C6472862D63F9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		6BC08459129BA251CCEF2BD6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 389DDDD522FCAA4C307F6DA8 /* Pods.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		76C33B98F1CA5EBAD85DBC99 /* Debug */ = {
+		0901CA2D551EA914F925101B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -424,9 +342,25 @@
 			};
 			name = Debug;
 		};
-		77576B4BB566547B86E45C3B /* Release */ = {
+		54912306DAAD7D06A5894296 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 249142C46E4D1568285A5ED2 /* Pods-OHPDFImage-Private.xcconfig */;
+			baseConfigurationReference = 3CC43275731EF6385F605F45 /* Pods-OHPDFImage-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-OHPDFImage/Pods-OHPDFImage-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9AB4919E33530918933D0BAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CC43275731EF6385F605F45 /* Pods-OHPDFImage-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-OHPDFImage/Pods-OHPDFImage-prefix.pch";
@@ -440,37 +374,103 @@
 			};
 			name = Release;
 		};
+		AAD94276E78FA82040022F65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00A78E57BFD24BD5BF7CE34D /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BE227D5BA2A05818AC4B5D1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CB5FB104A2FF6F8635745BC /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F67945DE60637764BC0D0CD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A571FEA9620EBB9CEFECC7A /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		3EBFC7E9158BCBC0835F056A /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				39DF904932C454BF884E79BE /* Debug */,
-				6BC08459129BA251CCEF2BD6 /* Release */,
+				0901CA2D551EA914F925101B /* Debug */,
+				F67945DE60637764BC0D0CD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A51E2017AED0510B8FD5844D /* Build configuration list for PBXNativeTarget "Pods-OHPDFImage" */ = {
+		4FF78549A01B587E771AEE10 /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2279AA7183299587690358DF /* Debug */,
-				77576B4BB566547B86E45C3B /* Release */,
+				AAD94276E78FA82040022F65 /* Debug */,
+				BE227D5BA2A05818AC4B5D1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F096A6677C6EFF14133B8E51 /* Build configuration list for PBXProject "Pods" */ = {
+		B2277BAFE3299277C5F7DA67 /* Build configuration list for PBXNativeTarget "Pods-OHPDFImage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				76C33B98F1CA5EBAD85DBC99 /* Debug */,
-				50207EEF3F4C6472862D63F9 /* Release */,
+				54912306DAAD7D06A5894296 /* Debug */,
+				9AB4919E33530918933D0BAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 59AB55D60620EBE96431273A /* Project object */;
+	rootObject = 79D83A10A0D571CA7849CAFA /* Project object */;
 }

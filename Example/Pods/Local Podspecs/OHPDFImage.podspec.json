@@ -1,6 +1,6 @@
 {
   "name": "OHPDFImage",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "summary": "OHPDFImage allows you to use a PDF as a vector UIImage",
   "description": "                   OHPDFImage will open PDF files and make it easy to access\n                   each page of the PDF as a vector image, then render it as\n                   an UIImage of any size.\n\n                   This will allow you to use PDF files as vector images in\n                   your applications, and ensure smooth resizing at any size.\n",
   "license": {
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/AliSoftware/OHPDFImage.git",
-    "tag": "3.2.0"
+    "tag": "3.2.1"
   },
   "source_files": "OHPDFImage/**/*.{h,m}",
   "frameworks": [
