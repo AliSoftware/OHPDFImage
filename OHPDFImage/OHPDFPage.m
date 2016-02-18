@@ -40,6 +40,11 @@
 
 - (instancetype)initWithRef:(CGPDFPageRef)pageRef
 {
+    if (!pageRef)
+    {
+        return nil;
+    }
+    
     self = [super init];
     if (self)
     {
@@ -47,6 +52,11 @@
         _pageRef = pageRef;
     }
     return self;
+}
+
+- (instancetype)init
+{
+    return [self initWithRef:nil];
 }
 
 - (void)dealloc
