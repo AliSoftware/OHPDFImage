@@ -18,7 +18,7 @@ pod 'OHPDFImage'
 
 ## Adding PDF files to your project
 
-If you intend to use a PDF as a vector image, you should add it as a resource in your project. Especially, you should **NOT** add the PDF in you `Images.xcassets` Assets Catalog.
+If you intend to use a PDF as a vector image, you should add it as a resource in your project. Especially, you should **NOT** add the PDF in your `Images.xcassets` Assets Catalog.
 
 #### Don't use Assets Catalog for PDF files
 
