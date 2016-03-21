@@ -71,6 +71,11 @@
 
 - (instancetype)initWithRef:(CGPDFDocumentRef)docRef
 {
+    if (!docRef)
+    {
+        return nil;
+    }
+    
     self = [super init];
     if (self)
     {
@@ -79,6 +84,11 @@
         _pagesCount = CGPDFDocumentGetNumberOfPages(docRef);
     }
     return self;
+}
+
+- (instancetype)init
+{
+    return [self initWithRef:nil];
 }
 
 - (void)dealloc
